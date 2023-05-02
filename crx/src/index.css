@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply w-[600px];
+}
+
+.btn-primary{
+    @apply rounded-full bg-blue-600 border border-blue-600 hover:bg-blue-700 text-white py-1 px-2;
+}
+
+.btn-secondary{
+    @apply  border rounded-full border-blue-600 hover:bg-blue-50  text-blue-600 py-1 px-2;
+}
+
+.btn-primary-large{
+    @apply rounded-full text-2xl bg-blue-600 border border-blue-600 hover:bg-blue-700 text-white py-1 px-4;
+}
+
+.btn-secondary-large{
+    @apply  border text-2xl rounded-full border-blue-600 hover:bg-blue-50  text-blue-600 py-1 px-4;
+}

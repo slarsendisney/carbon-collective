@@ -2,14 +2,13 @@ import { ChromeLogo } from "@/components/asset-logos/ChromeLogo";
 import { Hero } from "@/components/illustrations/Hero";
 import { QuickStart } from "@/components/landing/QuickStart";
 import { Logo as SquareLogo } from "@/components/logo/SquareLogo";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div>
       <section className="bg-white dark:bg-gray-900 relative">
-        <div className="py-8 px-4 grid grid-cols-2 max-w-7xl mx-auto text-left py-12 md:py-24 lg:py-32 z-10 relative">
+        <div className="py-8 px-4 grid md:grid-cols-2 gap-6 md:gap-0 max-w-7xl mx-auto text-left py-12 md:py-24 lg:py-32 z-10 relative">
           <div className="">
           <a
             href="https://square2023.devpost.com"
@@ -44,7 +43,7 @@ export default function Home() {
             A dynamic subscription that supports small businesses while helping
             you browse sustainably.
           </p>
-          <div className="grid grid-cols-2 max-w-lg gap-4">
+          <div className="grid md:grid-cols-2 max-w-lg gap-4">
           <Link href="/download">
               <div className="flex items-center justify-center space-x-2 bg-blue-600 text-white border-blue-600 border-2  hover:bg-blue-700 rounded-full p-2 ">
                 <p className="pr-2">Get Started</p>

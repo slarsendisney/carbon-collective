@@ -24,4 +24,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+  @apply text-gray-700;
+}
+
+
+.card {
+  @apply bg-white p-5 rounded flex flex-col items-center justify-center space-y-4 max-w-xl;
 }

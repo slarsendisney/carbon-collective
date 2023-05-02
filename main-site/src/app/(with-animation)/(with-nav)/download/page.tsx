@@ -14,7 +14,7 @@ const Download = () => (
           Your download should start automatically, if it doesn't{" "}
           <a className="text-blue-800 underline">click here</a>.
         </p>
-        <div className="bg-orange-100 text-orange-800 rounded p-4 flex space-x-2">
+        <div className="bg-orange-100 text-orange-800 rounded p-4 flex space-x-3">
             <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,19 +31,35 @@ const Download = () => (
             />
           </svg>
           </div>
-
-          <p className="text-gray-700">
+          <div className="flex flex-col space-y-2">
+          <p className="text-gray-700 pb-3">
             As this is hackathon project (and the extension is not yet on the chrome
             webstore), there are a few additional steps you will need to go
-            through in order to use our extension.
+            through in order to use our extension:
           </p>
+         
+          {
+            [
+              "Unzip the downloaded folder",
+              "Open chrome://extensions",
+              "Enable developer mode",
+              "Click 'Load unpacked'",
+              "Select the unzipped folder",
+            ].map((step, i) => (
+              <div className="flex space-x-2 items-center" key={i}>
+                <div className="w-6 h-6 rounded-full bg-orange-200 text-orange-800 flex items-center justify-center">
+                  {i + 1}
+                </div>
+                <p className="text-gray-700" dangerouslySetInnerHTML={{__html:step}} />
+              </div>
+            ))
+          }
+          </div>
         </div>
       </div>
     </div>
   </div>
 );
-
-//idjjlniagpmakjaamghbbolfkcgholhd
 
 
 export default Download;
