@@ -1,16 +1,18 @@
 {
   "name": "crx",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "slarsendisney",
   "description": "",
   "type": "module",
   "scripts": {
     "dev": "vite --port 30001",
     "build": "tsc && vite build",
+    "zip": "zip -r ../main-site/public/creator-collective creator-collective",
     "preview": "vite preview",
     "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.17",
     "@types/chrome": "^0.0.235",
     "framer-motion": "^10.12.6",
     "react": "^18.2.0",

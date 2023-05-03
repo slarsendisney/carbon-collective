@@ -14,6 +14,7 @@
 
 # production
 /build
+/crx/creator-collective
 
 # misc
 .DS_Store

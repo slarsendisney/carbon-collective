@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "turbo dev",
+    "zip:crx": "cd ../crx && yarn run build && yarn run zip && cd ../main-site",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -1,6 +1,16 @@
-import { ExtensionIllustration } from "@/components/illustrations/Extension";
+"use client";
 
-const Download = () => (
+import { ExtensionIllustration } from "@/components/illustrations/Extension";
+import { useEffect } from "react";
+
+const Download = () => {
+
+  // download the extension on page load
+  useEffect(() => {
+    window.location.href = "/creator-collective.zip";
+  }, []);
+
+  return (
   <div className="flex items-center justify-center grow bg-blue-100">
     <div className="max-w-3xl mx-auto py-12 w-full grid gap-12 grid-cols-3">
       <div className="flex items-center justify-center">
@@ -12,7 +22,7 @@ const Download = () => (
         </h2>
         <p className="mt-3 text-xlsm:mt-4">
           Your download should start automatically, if it doesn't{" "}
-          <a className="text-blue-800 underline">click here</a>.
+          <a href="/creator-collective.zip" className="text-blue-800 underline">click here</a>.
         </p>
         <div className="bg-orange-100 text-orange-800 rounded p-4 flex space-x-3">
             <div>
@@ -33,8 +43,8 @@ const Download = () => (
           </div>
           <div className="flex flex-col space-y-2">
           <p className="text-gray-700 pb-3">
-            As this is hackathon project (and the extension is not yet on the chrome
-            webstore), there are a few additional steps you will need to go
+            The extension is not yet on the chrome
+            webstore. As a result, there are a few additional steps you will need to go
             through in order to use our extension:
           </p>
          
@@ -59,7 +69,7 @@ const Download = () => (
       </div>
     </div>
   </div>
-);
+)};
 
 
 export default Download;

@@ -1,18 +1,15 @@
-import { useState } from 'react'
-import './Options.css'
+import { LazyMotion, domMax } from 'framer-motion'
+import { AuthProvider } from '../context/auth-context'
+import { SettingsPage } from './SettingsPage'
 
 function App() {
-  const [crx, setCrx] = useState('create-chrome-ext')
-
   return (
     <main>
-      <h3>Options Page!</h3>
-
-      <h6>v 0.0.0</h6>
-
-      <a href="https://www.npmjs.com/package/create-chrome-ext" target="_blank">
-        Power by {crx}
-      </a>
+      <LazyMotion features={domMax}>
+      <AuthProvider isOptions>
+      <SettingsPage />
+      </AuthProvider>
+      </LazyMotion>
     </main>
   )
 }

@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply border-none bg-none;
+}
 body{
-    @apply w-[600px];
+    @apply w-full border-none bg-none;
 }
 
 .btn-primary{
@@ -21,3 +24,15 @@ body{
 .btn-secondary-large{
     @apply  border text-2xl rounded-full border-blue-600 hover:bg-blue-50  text-blue-600 py-1 px-4;
 }
+
+.btn-primary-medium{
+    @apply rounded-full text-base bg-blue-600 border border-blue-600 hover:bg-blue-700 text-white py-1 px-4;
+}
+
+.btn-secondary-medium{
+    @apply  border text-base rounded-full border-blue-600 hover:bg-blue-50  text-blue-600 py-1 px-4;
+}
+
+.card {
+    @apply bg-white p-5 rounded flex flex-col items-center justify-center space-y-4 max-w-xl;
+  }

@@ -8,11 +8,11 @@ function App() {
 
   return (
     <main>
-      <AuthProvider>
-        <LazyMotion features={domMax}>
+      <LazyMotion features={domMax}>
+        <AuthProvider>
           <h1>{crx}</h1>
-        </LazyMotion>
-      </AuthProvider>
+        </AuthProvider>
+      </LazyMotion>
     </main>
   )
 }

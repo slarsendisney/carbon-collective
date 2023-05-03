@@ -9,11 +9,11 @@ export default function Link() {
   const {user} = useUser()
   useEffect(() => {
     if(!user) return;
-    const accountId = user.publicMetadata.accountId;
-    const name = user.publicMetadata.name;
+    const {id, fullName, profileImageUrl} = user;
+    console.log({id, fullName, profileImageUrl} )
     chrome.runtime.sendMessage(
       process.env.NEXT_PUBLIC_EXTENSION_ID,
-      { accountId, name, type: "OAUTH" },
+      { id, fullName, profileImageUrl, type: "OAUTH" },
       function (response) {
         console.log(response);
       }
@@ -25,16 +25,14 @@ export default function Link() {
     <div className="flex items-center justify-center grow bg-blue-100">
       <div className="card">
         <CheckCircleIcon className="w-12 h-12 text-green-600" />
-        <h1 className="text-2xl font-medium">Extension Installed</h1>
+        <h1 className="text-2xl font-medium">
+          You're set up and ready to support!
+        </h1>
         <p className="text-center">
-          Nice work! It looks like you already have our chrome extension. Click the button below to link your account with the installed extension.
+          We've successfully connected your account to the CreatorCollective
+          extension. You can start browsing the web and supporting your favorite
+          creators!
         </p>
-        <Link
-          href="/extension"
-          className="bg-blue-600 rounded-full text-white px-4 py-1 flex space-x-2 items-center justify-center"
-        >
-          <p className="text-xl">Link account</p>
-        </Link>
       </div>
     </div>
   );

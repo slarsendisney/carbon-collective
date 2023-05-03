@@ -7,6 +7,7 @@ const SignInPage = () => (
       path="/sign-in"
       routing="path"
       signUpUrl="/sign-up"
+      redirectUrl="/dashboard"
       appearance={{
         elements: {
           formButtonPrimary: 'bg-blue-600 hover:bg-blue-500 text-sm normal-case'

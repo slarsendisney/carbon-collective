@@ -17,6 +17,7 @@
 }
 
 body {
+
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -27,7 +28,6 @@ body {
 
   @apply text-gray-700;
 }
-
 
 .card {
   @apply bg-white p-5 rounded flex flex-col items-center justify-center space-y-4 max-w-xl;
