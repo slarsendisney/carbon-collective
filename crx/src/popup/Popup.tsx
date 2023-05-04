@@ -1,16 +1,14 @@
-import { useState } from 'react'
 import '../index.css'
 import { AuthProvider } from '../context/auth-context'
 import { LazyMotion, domMax } from 'framer-motion'
+import { LittleDashboard } from './LittleDashboard'
 
 function App() {
-  const [crx, setCrx] = useState('create-chrome-ext')
-
   return (
     <main>
       <LazyMotion features={domMax}>
         <AuthProvider>
-          <h1>{crx}</h1>
+          <LittleDashboard />
         </AuthProvider>
       </LazyMotion>
     </main>

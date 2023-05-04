@@ -22,16 +22,16 @@ export const Hero = ({ className }: { className?: string }) => (
         d="M2125.11 0H299.883C280.662 0 265.08 16.6192 265.08 37.12V1517.76C265.08 1538.26 280.662 1554.88 299.883 1554.88H2125.11C2144.33 1554.88 2159.91 1538.26 2159.91 1517.76V37.12C2159.91 16.6192 2144.33 0 2125.11 0Z"
         fill="#F4F1ED"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M265.08 116.5H2159.91"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M501.434 47.98H485.083C479.651 47.98 475.248 52.6765 475.248 58.47V75.91C475.248 81.7034 479.651 86.4 485.083 86.4H501.434C506.866 86.4 511.27 81.7034 511.27 75.91V58.47C511.27 52.6765 506.866 47.98 501.434 47.98Z"
@@ -49,25 +49,25 @@ export const Hero = ({ className }: { className?: string }) => (
         d="M494.009 40.9301H477.657C472.226 40.9301 467.822 45.6266 467.822 51.42V68.86C467.822 74.6535 472.226 79.35 477.657 79.35H494.009C499.441 79.35 503.844 74.6535 503.844 68.86V51.42C503.844 45.6266 499.441 40.9301 494.009 40.9301Z"
         fill="#C5DCDD"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M432.56 40.9301H416.208C410.777 40.9301 406.373 45.6266 406.373 51.42V68.86C406.373 74.6535 410.777 79.35 416.208 79.35H432.56C437.992 79.35 442.395 74.6535 442.395 68.86V51.42C442.395 45.6266 437.992 40.9301 432.56 40.9301Z"
         className="fill-current text-yellow-600"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M371.111 40.9301H354.76C349.328 40.9301 344.924 45.6266 344.924 51.42V68.86C344.924 74.6535 349.328 79.35 354.76 79.35H371.111C376.543 79.35 380.946 74.6535 380.946 68.86V51.42C380.946 45.6266 376.543 40.9301 371.111 40.9301Z"
         fill="#F46F40"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </m.g>
     <m.g
@@ -83,68 +83,68 @@ export const Hero = ({ className }: { className?: string }) => (
       <path
         d="M0 1322.78C7.49617 1315.32 17.6428 1311.13 28.22 1311.13C38.7972 1311.13 48.9438 1315.32 56.44 1322.78C63.9366 1330.25 74.0853 1334.44 84.665 1334.44C95.2446 1334.44 105.393 1330.25 112.89 1322.78L117.03 1318.66C124.526 1311.2 134.673 1307.01 145.25 1307.01C155.827 1307.01 165.974 1311.2 173.47 1318.66L179.63 1324.79C187.126 1332.25 197.273 1336.44 207.85 1336.44C218.427 1336.44 228.574 1332.25 236.07 1324.79L241.15 1319.73C248.647 1312.26 258.795 1308.07 269.375 1308.07C279.955 1308.07 290.103 1312.26 297.6 1319.73"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M241.14 1319.88C248.637 1312.41 258.785 1308.22 269.365 1308.22C279.945 1308.22 290.093 1312.41 297.59 1319.88L303.33 1325.6C310.827 1333.07 320.975 1337.26 331.555 1337.26C342.135 1337.26 352.283 1333.07 359.78 1325.6L363.28 1322.12C370.776 1314.66 380.923 1310.47 391.5 1310.47C402.077 1310.47 412.224 1314.66 419.72 1322.12C427.217 1329.59 437.365 1333.78 447.945 1333.78C458.525 1333.78 468.673 1329.59 476.17 1322.12L480.3 1317.99C487.797 1310.52 497.945 1306.33 508.525 1306.33C519.105 1306.33 529.253 1310.52 536.75 1317.99L542.91 1324.13C550.406 1331.59 560.553 1335.78 571.13 1335.78C581.707 1335.78 591.854 1331.59 599.35 1324.13L604.43 1319.06C611.927 1311.59 622.075 1307.4 632.655 1307.4C643.235 1307.4 653.383 1311.59 660.88 1319.06"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M0 1353.7C7.49617 1346.24 17.6428 1342.05 28.22 1342.05C38.7972 1342.05 48.9438 1346.24 56.44 1353.7C63.9366 1361.17 74.0853 1365.36 84.665 1365.36C95.2446 1365.36 105.393 1361.17 112.89 1353.7L117.08 1349.54C124.576 1342.08 134.723 1337.89 145.3 1337.89C155.877 1337.89 166.024 1342.08 173.52 1349.54L179.68 1355.67C187.176 1363.13 197.323 1367.32 207.9 1367.32C218.477 1367.32 228.624 1363.13 236.12 1355.67L241.2 1350.61C248.697 1343.14 258.845 1338.95 269.425 1338.95C280.005 1338.95 290.153 1343.14 297.65 1350.61"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M241.14 1350.8C248.637 1343.33 258.785 1339.14 269.365 1339.14C279.945 1339.14 290.093 1343.33 297.59 1350.8L303.33 1356.52C310.827 1363.99 320.975 1368.18 331.555 1368.18C342.135 1368.18 352.283 1363.99 359.78 1356.52L363.28 1353.04C370.776 1345.58 380.923 1341.39 391.5 1341.39C402.077 1341.39 412.224 1345.58 419.72 1353.04C427.217 1360.51 437.365 1364.7 447.945 1364.7C458.525 1364.7 468.673 1360.51 476.17 1353.04L480.3 1348.91C487.797 1341.44 497.945 1337.25 508.525 1337.25C519.105 1337.25 529.253 1341.44 536.75 1348.91L542.91 1355.05C550.406 1362.51 560.553 1366.7 571.13 1366.7C581.707 1366.7 591.854 1362.51 599.35 1355.05L604.43 1349.98C611.927 1342.51 622.075 1338.32 632.655 1338.32C643.235 1338.32 653.383 1342.51 660.88 1349.98"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1634.98 308.07C1643.49 308.07 1650.39 301.171 1650.39 292.66C1650.39 284.149 1643.49 277.25 1634.98 277.25C1626.47 277.25 1619.57 284.149 1619.57 292.66C1619.57 301.171 1626.47 308.07 1634.98 308.07Z"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </m.g>
     <path
       d="M1573.06 261.26C1585.22 261.26 1595.08 251.401 1595.08 239.24C1595.08 227.079 1585.22 217.22 1573.06 217.22C1560.9 217.22 1551.04 227.079 1551.04 239.24C1551.04 251.401 1560.9 261.26 1573.06 261.26Z"
       className="fill-current text-green-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1194.33 1396.34C1182.81 1396.34 1173.47 1405.34 1173.47 1416.51V1585.17C1173.47 1619.05 1201.87 1646.51 1236.89 1646.51H1343.79C1364.61 1646.51 1381.48 1662.83 1381.48 1682.97"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1129.02 1396.34C1140.53 1396.34 1149.87 1405.34 1149.87 1416.51V1585.17C1149.87 1619.05 1121.48 1646.51 1086.45 1646.51H979.55C958.74 1646.51 941.86 1662.83 941.86 1682.97"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1161.67 1379.58C1440 1379.58 1665.63 1166.13 1665.63 902.82C1665.63 639.513 1440 426.06 1161.67 426.06C883.34 426.06 657.71 639.513 657.71 902.82C657.71 1166.13 883.34 1379.58 1161.67 1379.58Z"
       fill="#F4F1ED"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1161.67 1294.43C1408.31 1294.43 1608.26 1105.27 1608.26 871.94C1608.26 638.605 1408.31 449.45 1161.67 449.45C915.025 449.45 715.08 638.605 715.08 871.94C715.08 1105.27 915.025 1294.43 1161.67 1294.43Z"
@@ -154,30 +154,30 @@ export const Hero = ({ className }: { className?: string }) => (
       d="M1467.35 1129.62C1486.05 1132.41 1493.35 1155.45 1479.71 1168.54C1398.71 1246.25 1286.14 1294.43 1161.71 1294.43C1037.45 1294.43 925.04 1246.43 844.09 1168.95C830.43 1155.88 837.71 1132.83 856.4 1130.02C950.29 1115.86 1054.07 1108.02 1163.19 1108.02C1271.27 1108.01 1374.14 1115.71 1467.35 1129.62Z"
       fill="#FFFBF8"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M942.52 1760.11C963.822 1760.11 981.09 1742.84 981.09 1721.54C981.09 1700.24 963.822 1682.97 942.52 1682.97C921.218 1682.97 903.95 1700.24 903.95 1721.54C903.95 1742.84 921.218 1760.11 942.52 1760.11Z"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1163.57 1760.11C1184.87 1760.11 1202.14 1742.84 1202.14 1721.54C1202.14 1700.24 1184.87 1682.97 1163.57 1682.97C1142.27 1682.97 1125 1700.24 1125 1721.54C1125 1742.84 1142.27 1760.11 1163.57 1760.11Z"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1381.97 1760.11C1403.27 1760.11 1420.54 1742.84 1420.54 1721.54C1420.54 1700.24 1403.27 1682.97 1381.97 1682.97C1360.67 1682.97 1343.4 1700.24 1343.4 1721.54C1343.4 1742.84 1360.67 1760.11 1381.97 1760.11Z"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <m.g
       animate={{ y: [0, 30, 0], x: [0, 30, 0], scale: [1, 1.05, 1] }}
@@ -193,130 +193,130 @@ export const Hero = ({ className }: { className?: string }) => (
         d="M1994.47 1067.84C1940.94 1148.84 1840.05 1193.18 1795.47 1168.11C1752.38 1143.87 1748.62 1024.47 1802.16 943.42C1855.7 862.37 1945.16 824.51 1997.21 858.87C2049.26 893.23 2048.01 986.78 1994.47 1067.84Z"
         className="fill-current text-green-600"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1801.43 1441.17C1801.43 1441.17 1747.51 1003.76 1996.83 860.85"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2032.14 958.46L1882.84 973.7"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2030.1 974.22L1873.41 990.21"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1803.94 944.3L1841.88 1056.42"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2192.37 1291.27C2175.82 1333.97 2103.28 1345.68 2030.37 1317.41C1957.46 1289.14 1929.32 1232.99 1932.51 1214.33C1936.51 1190.81 2022.59 1150.65 2090.32 1162.76C2167.29 1176.54 2208.93 1248.54 2192.37 1291.27Z"
         className="fill-current text-green-600"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1756.84 1441.17C1756.84 1441.17 1750.3 1249.03 1953.21 1209.59C2064.31 1188 2150.21 1243.83 2189.65 1291.17"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2064.12 1212.6L2133.4 1180.85"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2081.41 1218.11L2145.93 1187.92"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M2035.45 1207.03L2062.45 1324.7"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1716.18 1155.7C1749.11 1205.4 1743.95 1275.79 1717.18 1292.15C1700.94 1302.08 1632.66 1284.15 1599.74 1234.43C1566.82 1184.71 1566.93 1125.09 1598.82 1103.96C1630.71 1082.83 1683.26 1106 1716.18 1155.7Z"
         className="fill-current text-green-600"
         stroke="black"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1732.58 1441.17C1732.58 1441.17 1751.08 1192.68 1599.78 1106.54"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1578.72 1179.09H1674.18"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1583.53 1195.6H1683.61"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1718.45 1162.55L1701.29 1231"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1904.71 1483.6V1656.4C1904.72 1661.97 1903.62 1667.49 1901.49 1672.65C1899.36 1677.8 1896.23 1682.48 1892.29 1686.42C1888.35 1690.36 1883.67 1693.48 1878.52 1695.61C1873.37 1697.74 1867.84 1698.84 1862.27 1698.83H1689.48C1683.91 1698.84 1678.39 1697.74 1673.23 1695.61C1668.08 1693.48 1663.4 1690.36 1659.46 1686.42C1655.52 1682.47 1652.39 1677.79 1650.26 1672.64C1648.13 1667.49 1647.04 1661.97 1647.04 1656.4V1483.6C1647.05 1472.35 1651.52 1461.56 1659.48 1453.6C1667.44 1445.65 1678.23 1441.18 1689.48 1441.17H1862.27C1873.52 1441.17 1884.31 1445.64 1892.27 1453.6C1900.23 1461.56 1904.7 1472.35 1904.71 1483.6Z"
         fill="#F4F1ED"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M1863.6 1441.17H1688.14C1665.44 1441.17 1647.04 1459.57 1647.04 1482.27V1657.73C1647.04 1680.43 1665.44 1698.83 1688.14 1698.83H1863.6C1886.3 1698.83 1904.7 1680.43 1904.7 1657.73V1482.27C1904.7 1459.57 1886.3 1441.17 1863.6 1441.17Z"
         stroke="#FFC3D5"
-        stroke-width="6"
-        stroke-miterlimit="10"
+        strokeWidth="6"
+        strokeMiterlimit="10"
       />
       <path
         d="M1904.71 1483.6V1656.4C1904.72 1661.97 1903.62 1667.49 1901.49 1672.65C1899.36 1677.8 1896.23 1682.48 1892.29 1686.42C1888.35 1690.36 1883.67 1693.48 1878.52 1695.61C1873.37 1697.74 1867.84 1698.84 1862.27 1698.83H1689.48C1683.91 1698.84 1678.39 1697.74 1673.23 1695.61C1668.08 1693.48 1663.4 1690.36 1659.46 1686.42C1655.52 1682.47 1652.39 1677.79 1650.26 1672.64C1648.13 1667.49 1647.04 1661.97 1647.04 1656.4V1483.6C1647.05 1472.35 1651.52 1461.56 1659.48 1453.6C1667.44 1445.65 1678.23 1441.18 1689.48 1441.17H1862.27C1873.52 1441.17 1884.31 1445.64 1892.27 1453.6C1900.23 1461.56 1904.7 1472.35 1904.71 1483.6Z"
         stroke="#070707"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </m.g>
 
@@ -328,55 +328,55 @@ export const Hero = ({ className }: { className?: string }) => (
       d="M1338.88 824.87C1338.88 824.87 1445.42 1001.29 1396.88 1085.65C1348.34 1170.01 1262.82 1201.35 1161.68 1190.47C905.46 1162.92 590.02 965.69 597.97 902.06C608.7 816.2 1080.44 914.61 1080.44 914.61L1122.44 825.73L1338.88 824.87Z"
       fill="#C5DCDD"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M600.98 891.95C586.74 906.61 482.74 1110.51 1110.51 1258.86L1134.08 1215.54C1134.08 1215.54 713.47 776.1 600.98 891.95Z"
       fill="#C5DCDD"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1134.94 1215.54C1134.94 1215.54 924.34 995.54 761.33 907.89"
       stroke="#4B556A"
-      stroke-width="6"
-      stroke-miterlimit="10"
+      strokeWidth="6"
+      strokeMiterlimit="10"
     />
     <path
       d="M1110.51 1258.86C1139.51 1264.04 1262.71 1306.63 1289.98 1300.95C1317.25 1295.27 1273.98 1214.35 1256.98 1210.95C1239.98 1207.55 1155.98 1217.02 1134.11 1215.54C1112.24 1214.06 1110.51 1258.86 1110.51 1258.86Z"
       fill="#C48270"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1259.63 1077.54C1150.31 1308.03 838.92 1570.92 838.92 1570.92C838.92 1570.92 815.39 1550.55 785.85 1549.29C785.85 1549.29 1064.49 929.63 1221.85 899.57C1349.08 875.22 1278 1038.78 1259.63 1077.54Z"
       fill="#C5DCDD"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M785.76 1547.82C757.99 1592.11 715.03 1685.23 688.08 1717.52C679.32 1728.01 756.66 1731.13 768.4 1721.79C784.53 1708.96 785.76 1660.95 817.79 1654.79C840.2 1650.5 862.66 1635.54 852.21 1613.94C837.49 1583.54 839.63 1569.15 839.63 1569.15C814.29 1540.88 785.76 1547.82 785.76 1547.82Z"
       fill="#C48270"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1130.76 492.88C1181.89 576.4 1114.6 769.88 1083.64 798.78C1026.3 852.37 776.35 844.78 776.35 844.78L766.2 821.78C766.2 821.78 903.95 746.67 1013.88 740.71C1013.88 740.71 1043.21 589.95 1052.94 546.71C1065.2 492.22 1095.47 435.23 1130.76 492.88Z"
       fill="#C48270"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M794.38 823.78C788.87 809.98 741.68 818.62 722.93 827.33C706.98 834.74 687.69 854.63 684.54 858.84C681.39 863.05 674.38 884.31 674.38 884.31C674.38 884.31 681.17 891.49 690.32 878.97C699.47 866.45 723.2 852.11 729.09 855.25C742.33 862.32 710.25 865.1 706.74 870.18C703.23 875.26 704.9 878.28 704.9 878.28C704.9 878.28 735.05 876.91 739.9 876.28C744.75 875.65 763.97 866.95 773.37 859.07C782.77 851.19 797.82 832.38 794.38 823.78Z"
@@ -386,65 +386,65 @@ export const Hero = ({ className }: { className?: string }) => (
       d="M1334.08 442.35C1349.56 446.94 1398.08 465 1398.08 465C1398.08 465 1393.97 582.26 1380.21 610C1322.57 726.22 1340.51 833.3 1340.51 833.3C1340.51 833.3 1204.01 856.02 1120.51 834.11C1120.51 834.11 1131.43 745.69 1113.59 735.11C1095.75 724.53 1066.53 700.76 1074.59 652.9C1082.65 605.04 1080.81 479.53 1090.59 471.42C1100.37 463.31 1143.59 442.21 1154.75 442.25C1165.91 442.29 1334.08 442.35 1334.08 442.35Z"
       fill="#F4F1ED"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M908.01 679.12H602.36C598.991 679.12 595.673 679.934 592.686 681.492C589.7 683.051 587.134 685.308 585.208 688.071C583.281 690.834 582.051 694.022 581.621 697.363C581.191 700.704 581.575 704.099 582.74 707.26L659.74 916.65H1017.66L937.98 700.05C935.719 693.919 931.635 688.626 926.278 684.884C920.92 681.143 914.545 679.131 908.01 679.12Z"
       fill="#F9A09B"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M902 689.74H604C600.715 689.741 597.48 690.535 594.568 692.055C591.656 693.575 589.154 695.775 587.275 698.469C585.396 701.163 584.195 704.271 583.775 707.529C583.354 710.786 583.726 714.097 584.86 717.18L659.98 921.36H1008.98L931.28 710.15C929.074 704.161 925.084 698.993 919.848 695.343C914.612 691.693 908.382 689.738 902 689.74Z"
       fill="#F9A09B"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M659.93 917.33H1166.08C1171.81 917.33 1177.3 919.606 1181.35 923.656C1185.4 927.707 1187.68 933.201 1187.68 938.93V943.69H681.53C675.801 943.69 670.307 941.414 666.256 937.364C662.206 933.313 659.93 927.819 659.93 922.09V917.33Z"
       className="fill-current text-blue-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M908.01 679.12H602.36C598.991 679.12 595.673 679.934 592.686 681.492C589.7 683.051 587.134 685.308 585.208 688.071C583.281 690.834 582.051 694.022 581.621 697.363C581.191 700.704 581.575 704.099 582.74 707.26L659.74 916.65H1017.66L937.98 700.05C935.719 693.919 931.635 688.626 926.278 684.884C920.92 681.143 914.545 679.131 908.01 679.12Z"
       className="fill-current text-blue-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M802.541 823.844C809.784 815.799 807.614 802.037 797.694 793.105C787.774 784.173 773.861 783.454 766.618 791.498C759.374 799.542 761.544 813.305 771.464 822.237C781.384 831.169 795.298 831.888 802.541 823.844Z"
       className="fill-current text-blue-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1066.06 926.75H1044.67V934.43H1066.06V926.75Z"
       fill="#F9A09B"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1106.93 926.75H1085.54V934.43H1106.93V926.75Z"
       fill="#F9A09B"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1181.73 213.46C1181.73 213.46 1108.02 178.88 1062.34 251.37C1016.55 324.03 1079.34 356.37 1046.54 393.47C1011.05 433.63 966.12 457.15 1002.54 536.73C1039.66 617.88 945 587.96 965.47 678.3H1125.97C1125.97 678.3 1195.02 654.13 1174.3 594.58C1153.58 535.03 1109.18 526.79 1150.79 474.25C1182.04 434.8 1326.21 442.84 1339.16 446.25C1352.11 449.66 1407.29 468.54 1407.29 468.54C1407.29 468.54 1429.23 402.89 1397.85 366.73C1358.14 320.99 1291.92 354.73 1279.85 301.04C1271.69 264.84 1255.85 222.8 1229.53 214.85C1201.25 206.31 1181.73 213.46 1181.73 213.46Z"
@@ -453,17 +453,17 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1175.17 222.54C1175.17 222.54 1159.67 198.47 1080.97 253.34C1032.33 287.26 1066.33 356.34 1033.53 393.44C998.04 433.6 953.12 457.12 989.53 536.7C1026.65 617.85 931.99 587.93 952.46 678.27"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1237.95 339.59C1237.95 339.59 1235.49 394.26 1255.44 422.31C1269.01 441.36 1256.82 439.76 1304.14 445.2C1304.14 445.2 1309.08 515.39 1199.52 515.39C1118.22 515.39 1150.77 474.25 1150.77 474.25C1150.77 474.25 1184.71 425.08 1170.08 339.59H1237.95Z"
       fill="#C48270"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1239.02 335.34C1239.02 335.34 1241.12 445.2 1153.27 445.2C1151.49 445.193 1149.74 444.787 1148.14 444.01C1152.76 440.79 1181.6 417.07 1167.37 333.92H1239.02C1239.02 333.92 1239.02 334.4 1239.02 335.3V335.34Z"
@@ -473,23 +473,23 @@ export const Hero = ({ className }: { className?: string }) => (
       d="M1241.42 333.54C1241.42 333.54 1228.84 427.46 1169.19 427.91C1129.96 428.2 1107.3 373.19 1098.11 344.35C1087.62 311.42 1098.74 245.6 1154.7 246.43C1203.3 247.16 1228.7 313.43 1228.7 313.43L1241.42 333.54Z"
       fill="#C48270"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1229.95 328.78C1229.95 328.78 1227.57 320.65 1229.77 313.31C1231.17 308.66 1234.42 304.31 1241.28 302.59"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1241.28 318.65L1229.77 313.31"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1330.38 473.54C1330.38 473.54 1296 562.66 1350.99 610.54C1368.72 625.97 1394.89 611.87 1394.89 611.87"
@@ -498,9 +498,9 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1330.38 473.54C1330.38 473.54 1296 562.66 1350.99 610.54C1368.72 625.97 1394.89 611.87 1394.89 611.87"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1356.18 563.94C1375.78 626 1401.77 713.73 1401.77 713.73C1298.67 719.33 1143.23 781.86 1124.3 789.61C1092.88 796.61 1048.39 822.05 1039.84 827.16C1031.84 831.71 1019.26 844.32 1015.46 849.38C1011.46 854.66 1002.15 873.67 1002.15 873.67C1004.13 874.65 1006.39 874.936 1008.55 874.483C1010.72 874.03 1012.67 872.863 1014.09 871.17C1017.76 867.17 1023.92 857.53 1028.86 852.84C1024.38 864.09 1020.19 875.71 1020.19 875.71C1020.19 875.71 1031.3 878.43 1045.54 873.83C1052.36 871.63 1059.9 858.55 1067.88 849.94C1075.86 841.33 1093.27 845.4 1110.7 842.45C1128.13 839.5 1140.23 813.94 1140.23 813.94L1139.99 813.52C1185.24 814.27 1423.22 815.82 1475.06 767.38C1506.06 738.45 1465.88 550.04 1414.75 466.53C1392.26 429.81 1358.75 434.74 1343.04 458.12C1337.79 465.91 1331.52 470.46 1331.26 481.49"
@@ -509,23 +509,23 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1356.18 563.94C1375.78 626 1401.77 713.73 1401.77 713.73C1298.67 719.33 1143.23 781.86 1124.3 789.61C1092.88 796.61 1048.39 822.05 1039.84 827.16C1031.84 831.71 1019.26 844.32 1015.46 849.38C1011.46 854.66 1002.15 873.67 1002.15 873.67C1004.13 874.65 1006.39 874.936 1008.55 874.483C1010.72 874.03 1012.67 872.863 1014.09 871.17C1017.76 867.17 1023.92 857.53 1028.86 852.84C1024.38 864.09 1020.19 875.71 1020.19 875.71C1020.19 875.71 1031.3 878.43 1045.54 873.83C1052.36 871.63 1059.9 858.55 1067.88 849.94C1075.86 841.33 1093.27 845.4 1110.7 842.45C1128.13 839.5 1140.23 813.94 1140.23 813.94L1139.99 813.52C1185.24 814.27 1423.22 815.82 1475.06 767.38C1506.06 738.45 1465.88 550.04 1414.75 466.53C1392.26 429.81 1358.75 434.74 1343.04 458.12C1337.79 465.91 1331.52 470.46 1331.26 481.49"
       stroke="#0F0F0F"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1029.08 876.46C1028.88 876.492 1028.68 876.467 1028.5 876.39C1028.37 876.342 1028.25 876.268 1028.15 876.171C1028.05 876.075 1027.97 875.958 1027.92 875.829C1027.86 875.7 1027.84 875.561 1027.84 875.422C1027.85 875.283 1027.88 875.146 1027.94 875.02C1029.28 871.84 1041.18 843.87 1046.42 840.08C1055.51 833.5 1067.35 824.87 1067.35 824.87L1068.59 826.57C1068.59 826.57 1056.74 835.21 1047.66 841.78C1043.66 844.7 1033.45 867.35 1029.88 875.78C1029.82 875.953 1029.71 876.106 1029.57 876.225C1029.43 876.344 1029.26 876.425 1029.08 876.46Z"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1040.4 874.54C1040.21 874.569 1040.02 874.547 1039.84 874.476C1039.67 874.405 1039.51 874.287 1039.4 874.136C1039.28 873.984 1039.21 873.804 1039.18 873.615C1039.16 873.426 1039.19 873.234 1039.27 873.06C1039.75 872.06 1051.13 847.33 1056.45 843.48C1065.54 836.91 1077.38 828.28 1077.38 828.28L1078.62 829.98C1078.62 829.98 1066.77 838.61 1057.69 845.19C1053.69 848.11 1044.4 866.93 1041.18 873.94C1041.11 874.096 1041 874.232 1040.86 874.336C1040.73 874.441 1040.57 874.511 1040.4 874.54Z"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1224.96 355.54C1224.96 355.54 1224.75 476.41 1290.22 485.14C1355.69 493.87 1407.53 450.42 1407.53 450.42"
@@ -534,9 +534,9 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1143.99 335.15L1140.45 364.37L1152.81 371.58"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1169.78 335.825C1172.4 334.907 1173.53 331.362 1172.32 327.907C1171.11 324.452 1168 322.395 1165.39 323.313C1162.77 324.232 1161.63 327.777 1162.85 331.232C1164.06 334.687 1167.16 336.743 1169.78 335.825Z"
@@ -549,16 +549,16 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1151.81 309.45C1151.81 309.45 1160.45 299.14 1179.07 308.12"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1106.14 323.87C1106.14 323.87 1111.01 311.31 1128.97 316.65"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1133.18 241.73C1133.18 241.73 1162.11 229.73 1171.76 258.36C1181.41 286.99 1197.13 310.9 1228.84 294.27C1260.55 277.64 1247.57 256.03 1247.57 256.03"
@@ -571,47 +571,47 @@ export const Hero = ({ className }: { className?: string }) => (
     <path
       d="M1225.14 325.91C1225.14 325.91 1222.75 317.78 1224.96 310.44C1226.35 305.79 1229.6 301.44 1236.46 299.72"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1236.46 315.78L1224.96 310.44"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1223.89 291.36C1218 237.53 1164.43 206.72 1163.89 206.52L1189.69 208.28C1192.81 209.34 1222.52 213.46 1250.24 284.85L1223.89 291.36Z"
       className="fill-current text-green-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1244.46 364.256C1258.04 362.444 1266.65 342.98 1263.69 320.781C1260.73 298.583 1247.31 282.056 1233.73 283.869C1220.15 285.681 1211.54 305.145 1214.5 327.344C1217.47 349.542 1230.88 366.068 1244.46 364.256Z"
       className="fill-current text-green-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1253.03 363.121C1266.61 361.309 1275.22 341.845 1272.26 319.646C1269.3 297.448 1255.89 280.922 1242.31 282.734C1228.72 284.546 1220.12 304.011 1223.08 326.209C1226.04 348.407 1239.45 364.934 1253.03 363.121Z"
       className="fill-current text-green-600"
       stroke="black"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M1152.81 386.39C1152.81 386.39 1172.09 389.71 1180.73 370.65"
       stroke="#070707"
-      stroke-width="6"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

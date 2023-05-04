@@ -14,6 +14,7 @@ export type Account = {
 export const AuthContext = createContext({
   logout: () => {},
   account: undefined as Account | undefined,
+  active: true,
 })
 
 export const AuthProvider = ({
@@ -26,6 +27,7 @@ export const AuthProvider = ({
   const [account, setAccount] = useState<Account>()
   const [onCreativeCollectiveSite, setOnCreativeCollectiveSite] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [active, setActive] = useState(true)
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
@@ -69,7 +71,7 @@ export const AuthProvider = ({
   }, [account])
 
   if (loading) {
-    return <Loading/>
+    return <Loading />
   }
   if (!isSignedIn) {
     if (isOptions) {
@@ -79,7 +81,17 @@ export const AuthProvider = ({
   }
   console.log(account)
   if (onCreativeCollectiveSite) {
-    return <Ready profileImageUrl={account?.profileImageUrl} fullName={account?.fullName} />
+    return (
+      <AuthContext.Provider
+        value={{
+          account,
+          logout,
+          active,
+        }}
+      >
+        <Ready />
+      </AuthContext.Provider>
+    )
   }
 
   return (
@@ -87,6 +99,7 @@ export const AuthProvider = ({
       value={{
         account,
         logout,
+        active,
       }}
     >
       {children}

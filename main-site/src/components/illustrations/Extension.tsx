@@ -486,7 +486,7 @@ export const ExtensionIllustration = ({className}: {className:string}) => (
       strokeWidth="6"
       strokeLinecap="round"
       strokeLinejoin="round"
-      stroke-dasharray="11.64 19.39"
+      strokeDasharray="11.64 19.39"
     />
     <path
       d="M605.198 389.47C604.147 387.769 603.009 386.123 601.788 384.54"

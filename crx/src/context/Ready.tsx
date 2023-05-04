@@ -1,20 +1,16 @@
 import { EmptyFrameIllustration } from '../illustrations/EmptyFrame'
 import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { m } from 'framer-motion'
+import { useAuth } from './auth-context'
 
-export const Ready = ({
-  fullName,
-  profileImageUrl,
-}: {
-  fullName?: string
-  profileImageUrl?: string
-}) => {
+export const Ready = () => {
+  const {account} = useAuth()
   return (
     <div className="w-[400px] bg-blue-100 h-full flex flex-col items-center justify-center space-y-2 p-4">
       <EmptyFrameIllustration className="w-full">
         <div className="space-y-2 max-w-[300px] text-center">
-          {profileImageUrl && (
-            <img src={profileImageUrl} className="w-12 h-12 mx-auto rounded-full" alt="Profile" />
+          {account?.profileImageUrl && (
+            <img src={account.profileImageUrl} className="w-12 h-12 mx-auto rounded-full bg-gray-100" alt="Profile" />
           )}
 
           <div className='flex space-x-1 w-full justify-center'>
@@ -27,7 +23,7 @@ export const Ready = ({
             👋
           </m.p>
           <p className="text-lg ">
-            Hey <span className="font-bold">{fullName}</span>!
+            Hey <span className="font-bold">{account?.fullName}</span>!
           </p>
           </div>
           <p className="pb-2">

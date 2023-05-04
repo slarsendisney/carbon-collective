@@ -6,9 +6,9 @@ function App() {
   return (
     <main>
       <LazyMotion features={domMax}>
-      <AuthProvider isOptions>
-      <SettingsPage />
-      </AuthProvider>
+        <AuthProvider isOptions>
+          <SettingsPage />
+        </AuthProvider>
       </LazyMotion>
     </main>
   )
