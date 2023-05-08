@@ -15,7 +15,6 @@
 # production
 /build
 /crx/carbon-collective
-carbon-collective.zip
 # misc
 .DS_Store
 */extension.pem

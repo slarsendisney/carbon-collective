@@ -7,7 +7,6 @@
     "dev:turbo": "turbo dev",
     "preinstall": "cd ../crx && yarn install && cd ../main-site",
     "zip:crx": "cd ../crx && yarn run build && yarn run zip && cd ../main-site",
-    "prebuild": "yarn run zip:crx",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
