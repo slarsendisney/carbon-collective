@@ -9,3 +9,4 @@ The code base is split into three sections:
 - `crx` which contains the code for the accompanying chrome extension 
 - `demo-sites` which contains code for a few dummy websites that can be used to test the chrome extension once it is installed.
 
+
