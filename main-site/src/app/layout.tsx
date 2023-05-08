@@ -1,5 +1,5 @@
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs/app-beta";
+import { ClerkProvider } from '@clerk/nextjs'
 
 export const metadata = {
   title: "Create Next App",
