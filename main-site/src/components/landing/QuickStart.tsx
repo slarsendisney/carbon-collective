@@ -25,7 +25,7 @@ export const QuickStart = () => {
             Getting Started
           </h2>
           <p className="mt-3 text-xlsm:mt-4">
-            Follow these steps to get started with CreatorCollective. We will have you
+            Follow these steps to get started with Carbon Collective. We will have you
             supporting your favorite creators and enjoying ad-free browsing in no time.
           </p>
         </div>

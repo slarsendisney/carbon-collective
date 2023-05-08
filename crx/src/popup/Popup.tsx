@@ -5,7 +5,7 @@ import { LittleDashboard } from './LittleDashboard'
 
 function App() {
   return (
-    <main>
+    <main className='text-gray-700'>
       <LazyMotion features={domMax}>
         <AuthProvider>
           <LittleDashboard />

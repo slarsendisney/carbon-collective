@@ -5,32 +5,34 @@ import { useAuth } from '../context/auth-context'
 export const EmptyFrameIllustration = ({
   className,
   children,
+  center = true
 }: {
   className: string
-  children: React.ReactNode
+  children: React.ReactNode,
+  center?: boolean
 }) => {
-  const { active } = useAuth()
+  const { active, toggleActive } = useAuth()
   return (
     <div className={`${className} relative overflow-hidden`}>
-      <div className="absolute top-0 h-8 w-full px-3 left-0 flex items-center justify-between z-50">
+      <div className="absolute top-0 h-8 w-full px-3.5 left-0 flex items-center justify-between z-50">
         <div className="flex items-center space-x-1">
           <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">
             <Logo className="w-5 mt-0.5 text-blue-600" />
           </a>
           {active ? (
-            <div className="flex items-center bg-green-300  text-green-900 rounded-full pl-1 pr-2 py-0.5">
+            <button onClick={toggleActive} className="flex items-center bg-green-300  text-green-900 rounded-full pl-1 pr-2 py-0.5">
               <BoltIcon className="h-3 w-3" />
               <p className="p-0 m-0" style={{ fontSize: 9 }}>
                 ACTIVE
               </p>
-            </div>
+            </button>
           ) : (
-            <div className="flex items-center bg-red-300  text-red-700 rounded-full pl-1 pr-2 py-0.5">
+            <button onClick={toggleActive} className="flex items-center bg-red-300  text-red-700 rounded-full pl-1 pr-2 py-0.5">
               <PauseIcon className="h-3 w-3" />
               <p className="p-0 m-0" style={{ fontSize: 9 }}>
                 PAUSED
               </p>
-            </div>
+            </button>
           )}
         </div>
         <div className="flex items-center space-x-1">
@@ -43,7 +45,7 @@ export const EmptyFrameIllustration = ({
           </button>
         </div>
       </div>
-      <div className="absolute pt-8 pb-1 top-0 w-full h-full left-0 flex items-center justify-center">
+      <div className={`absolute pt-10 pb-1 top-0 w-full h-full left-0 flex ${center ? "items-center justify-center": "items-start justify-center"}`}>
         {children}
       </div>
       <svg viewBox="0 0 1456 1039" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       emptyOutDir: true,
-      outDir: 'creator-collective',
+      outDir: 'carbon-collective',
       rollupOptions: {
         input: config,
         output: {

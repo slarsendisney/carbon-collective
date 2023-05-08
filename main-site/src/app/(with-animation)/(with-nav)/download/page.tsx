@@ -7,7 +7,7 @@ const Download = () => {
 
   // download the extension on page load
   useEffect(() => {
-    window.location.href = "/creator-collective.zip";
+    window.location.href = "/carbon-collective.zip";
   }, []);
 
   return (
@@ -22,7 +22,7 @@ const Download = () => {
         </h2>
         <p className="mt-3 text-xlsm:mt-4">
           Your download should start automatically, if it doesn't{" "}
-          <a href="/creator-collective.zip" className="text-blue-800 underline">click here</a>.
+          <a href="/carbon-collective.zip" className="text-blue-800 underline">click here</a>.
         </p>
         <div className="bg-orange-100 text-orange-800 rounded p-4 flex space-x-3">
             <div>

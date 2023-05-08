@@ -15,6 +15,7 @@ export const AuthContext = createContext({
   logout: () => {},
   account: undefined as Account | undefined,
   active: true,
+  toggleActive: () => {}
 })
 
 export const AuthProvider = ({
@@ -43,14 +44,16 @@ export const AuthProvider = ({
   })
 
   useEffect(() => {
-    chrome.storage.local.get(['id', 'fullName', 'profileImageUrl'], async (result) => {
-      console.log(result)
+    chrome.storage.local.get(['id', 'fullName', 'profileImageUrl', 'active'], async (result) => {
       if (result.id) {
         setAccount({
           id: result.id,
           fullName: result.fullName,
           profileImageUrl: result.profileImageUrl,
         })
+        if(result.active !== undefined) {
+          setActive(result.active)
+        }
       } else {
         console.log('no account found')
       }
@@ -64,6 +67,19 @@ export const AuthProvider = ({
       setAccount(undefined)
     })
   }, [])
+
+  const toggleActive = useCallback(() => {
+    const newVal = !active
+    setActive(newVal)
+    chrome.storage.local.set({
+      active: newVal,
+    })
+    if(newVal){
+      chrome.action.setBadgeText({ text: '' })
+    } else {
+      chrome.action.setBadgeText({ text: '⏸' })
+    }
+  }, [active])
 
   const isSignedIn = useMemo(() => {
     console.log(account)
@@ -79,7 +95,8 @@ export const AuthProvider = ({
     }
     return <Login />
   }
-  console.log(account)
+  
+
   if (onCreativeCollectiveSite) {
     return (
       <AuthContext.Provider
@@ -87,6 +104,7 @@ export const AuthProvider = ({
           account,
           logout,
           active,
+          toggleActive
         }}
       >
         <Ready />
@@ -100,6 +118,7 @@ export const AuthProvider = ({
         account,
         logout,
         active,
+        toggleActive
       }}
     >
       {children}

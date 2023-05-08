@@ -1,16 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useUser } from "@clerk/nextjs";
 
-export default function Link() {
-  const {user} = useUser()
+export default function LinkPage() {
+  const { user } = useUser();
   useEffect(() => {
-    if(!user) return;
-    const {id, fullName, profileImageUrl} = user;
-    console.log({id, fullName, profileImageUrl} )
+    if (!user) return;
+    const { id, fullName, profileImageUrl } = user;
+    console.log({ id, fullName, profileImageUrl });
     chrome.runtime.sendMessage(
       process.env.NEXT_PUBLIC_EXTENSION_ID,
       { id, fullName, profileImageUrl, type: "OAUTH" },
@@ -20,7 +19,6 @@ export default function Link() {
     );
   }, [user]);
 
-
   return (
     <div className="flex items-center justify-center grow bg-blue-100">
       <div className="card">
@@ -29,7 +27,7 @@ export default function Link() {
           You're set up and ready to support!
         </h1>
         <p className="text-center">
-          We've successfully connected your account to the CreatorCollective
+          We've successfully connected your account to the Carbon Collective
           extension. You can start browsing the web and supporting your favorite
           creators!
         </p>

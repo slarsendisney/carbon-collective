@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --port 30001",
     "build": "tsc && vite build",
-    "zip": "zip -r ../main-site/public/creator-collective creator-collective",
+    "zip": "zip -r ../main-site/public/carbon-collective carbon-collective",
     "preview": "vite preview",
     "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'"
   },
