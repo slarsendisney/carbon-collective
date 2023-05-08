@@ -9,12 +9,11 @@ export default function LinkPage() {
   useEffect(() => {
     if (!user) return;
     const { id, fullName, profileImageUrl } = user;
-    console.log({ id, fullName, profileImageUrl });
     chrome.runtime.sendMessage(
       process.env.NEXT_PUBLIC_EXTENSION_ID,
       { id, fullName, profileImageUrl, type: "OAUTH" },
       function (response) {
-        console.log(response);
+        // console.log(response);
       }
     );
   }, [user]);

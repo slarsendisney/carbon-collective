@@ -4,6 +4,7 @@ import { Login } from './Login'
 import { Ready } from './Ready'
 import { LoggedOutPage } from '../options/LoggedOutPage'
 import { Loading } from './Loading'
+import { configuration } from '../data/configuration'
 
 export type Account = {
   id: string
@@ -35,7 +36,7 @@ export const AuthProvider = ({
       var activeTab = tabs[0]
       var activeTabURL = activeTab.url
       if (
-        activeTabURL?.includes('localhost:3000') ||
+        configuration.verfiedDomains.some((domain) => activeTabURL?.includes(domain)) ||
         (!isOptions && activeTabURL?.includes('dokaenhikhgdmjnpcmemgmlncbkdffdl'))
       ) {
         setOnCreativeCollectiveSite(true)
@@ -69,6 +70,7 @@ export const AuthProvider = ({
   }, [])
 
   const toggleActive = useCallback(() => {
+    chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor  })
     const newVal = !active
     setActive(newVal)
     chrome.storage.local.set({
@@ -82,7 +84,6 @@ export const AuthProvider = ({
   }, [active])
 
   const isSignedIn = useMemo(() => {
-    console.log(account)
     return !!account
   }, [account])
 

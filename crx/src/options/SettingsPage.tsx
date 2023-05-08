@@ -27,7 +27,7 @@ export const SettingsPage = () => {
           )}
           <div>To manage your subscription please visit your dashboard.</div>
           <div className="grid gap-1 w-full">
-            <a href="http://localhost:3000/dashboard" className="btn-primary-medium text-center">
+            <a href="https://www.carboncollective.club/dashboard" className="btn-primary-medium text-center">
               Visit Dashboard
             </a>
             <button className="btn-secondary-medium" onClick={logout}>

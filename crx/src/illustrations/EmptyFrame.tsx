@@ -16,7 +16,7 @@ export const EmptyFrameIllustration = ({
     <div className={`${className} relative overflow-hidden`}>
       <div className="absolute top-0 h-8 w-full px-3.5 left-0 flex items-center justify-between z-50">
         <div className="flex items-center space-x-1">
-          <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.carboncollective.club" target="_blank" rel="noopener noreferrer">
             <Logo className="w-5 mt-0.5 text-blue-600" />
           </a>
           {active ? (

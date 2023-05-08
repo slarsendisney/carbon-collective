@@ -9,10 +9,10 @@ export const LoggedOutPage = () => {
         </p>
         <p className="text-gray-500">To use this page you must be authenticated.</p>
         <div className="grid gap-1 w-full">
-          <a href="http://localhost:3000/sync" className="btn-primary-medium text-center">
+          <a href="https://www.carboncollective.club/sync" className="btn-primary-medium text-center">
             Login
           </a>
-          <a href="http://localhost:3000" className="btn-secondary-medium text-center">
+          <a href="https://www.carboncollective.club" className="btn-secondary-medium text-center">
             Visit Site
           </a>
         </div>

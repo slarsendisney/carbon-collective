@@ -1,11 +1,7 @@
-console.info('chrome-ext template-react-ts background script')
-
-const MAIN_SITE_DOMAINS = ['localhost', 'carboncollective.club']
-
-const BG_COLOR = '#93c5fd'
+import { configuration } from "../data/configuration"
 
 chrome.runtime.onMessage.addListener(function message(request, sender, sendResponse) {
-  chrome.action.setBadgeBackgroundColor({ color: BG_COLOR })
+  chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor  })
   chrome.storage.local.get(['id', 'active'], (result) => {
     if (!result.id) {
       // If user is not logged in, do not track page views
@@ -16,7 +12,6 @@ chrome.runtime.onMessage.addListener(function message(request, sender, sendRespo
       // If extension is not active, do not track page views
       return
     }
-    console.log(request.domain)
     switch (request.type) {
       case 'SUPPORTED_SITE':
         chrome.action.setBadgeText({ text: '🔥', tabId: sender.tab?.id })
@@ -63,13 +58,15 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
   sender,
   sendResponse,
 ) {
-  chrome.action.setBadgeBackgroundColor({ color: BG_COLOR })
+  chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
   // Message past this point should only be accessible from MAIN_SITE_DOMAINS
   // This check is to prevent malicious actors from sending messages to the extension
   const url = new URL(sender.url as string)
   const domain = url.hostname
 
-  if (!MAIN_SITE_DOMAINS.includes(domain)) {
+  console.log('domain', domain)
+
+  if (!configuration.verfiedDomains.includes(domain)) {
     console.error('Message from non-main site domain')
     return
   }
@@ -123,12 +120,5 @@ chrome.runtime.onInstalled.addListener(() => {
     },
   })
 })
-
-// on tab update
-// chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-//   if (changeInfo.status === 'loading') {
-//     chrome.action.setBadgeText({ text: '', tabId })
-//   }
-// })
 
 export {}

@@ -5,11 +5,8 @@ const domain = url.hostname
 
 let isSupportedSite = false
 
-console.log(domain)
-
 for (let i = 0; i < metas.length; i++) {
   if (metas[i].getAttribute('name') === 'carbon-collective') {
-    console.log('supported site')
     chrome.runtime.sendMessage({
       creatorCollectiveID: metas[i].getAttribute('content'),
       domain,
@@ -20,7 +17,6 @@ for (let i = 0; i < metas.length; i++) {
 }
 
 if (!isSupportedSite) {
-  console.log('unsupported site')
   chrome.runtime.sendMessage({
     domain,
     type: 'UNSUPPORTED_SITE',

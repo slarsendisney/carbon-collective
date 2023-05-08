@@ -13,7 +13,7 @@ export const Login = () => {
         </p>
         <button
           className="btn-primary-large w-full"
-          onClick={() => chrome.tabs.create({ url: 'http://localhost:3000/sync' })}
+          onClick={() => chrome.tabs.create({ url: 'https://www.carboncollective.club/sync' })}
         >
           <div className="flex space-x-2 items-center justify-center">
             <p>Sign in</p>
@@ -21,7 +21,7 @@ export const Login = () => {
         </button>
         <button
           className="btn-secondary-large w-full"
-          onClick={() => chrome.tabs.create({ url: 'http://localhost:3000' })}
+          onClick={() => chrome.tabs.create({ url: 'https://www.carboncollective.club' })}
         >
           How it works
         </button>

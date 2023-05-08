@@ -32,7 +32,12 @@ export default defineManifest({
   ],
   externally_connectable: {
     "ids": ["*"],
-    "matches": ["*://localhost/*"]
+    "matches": [
+      "*://localhost/*",
+      "*://carbon-collective.vercel.app/*",
+      "*://carboncollective.club/*",
+      "*://www.carboncollective.club/*",
+  ]
   },
   permissions: [
     'storage',
