@@ -1,0 +1,19 @@
+{
+  "name": "creator-collective-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "tsc"
+  },
+  "author": "slarsendisney",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chrome": "^0.0.235",
+    "axios": "^1.4.0",
+    "typescript": "^5.0.4"
+  }
+}
