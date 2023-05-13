@@ -1,6 +1,6 @@
 {
   "name": "carbon-collective-js",
-  "version": "1.0.4",
+  "version": "1.0.13",
   "repository": {
     "type": "git",
     "url": "https://github.com/slarsendisney/carbon-collective"
@@ -19,5 +19,8 @@
     "@types/chrome": "^0.0.235",
     "axios": "^1.4.0",
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.4"
   }
 }
