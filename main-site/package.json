@@ -2,6 +2,7 @@
   "name": "square-hack",
   "version": "0.1.0",
   "private": true,
+  "author": "slarsendisney",
   "scripts": {
     "dev": "next dev",
     "dev:turbo": "turbo dev",

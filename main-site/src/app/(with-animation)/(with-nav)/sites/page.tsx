@@ -12,12 +12,11 @@ const SitesPage = async () => {
     return (
       <>
         <Onboarding step={0}/>
-       
         </>
     );
   }
 
-  return <Onboarding step={0}/>;
+  return <Onboarding step={2}/>;
 };
 
 export default SitesPage;

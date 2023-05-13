@@ -59,6 +59,14 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
   sendResponse,
 ) {
   chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
+
+
+  switch (request.type) {
+    // Used to check for extension installation
+    case 'PING':
+      sendResponse({ type: 'PONG' })
+  }
+
   // Message past this point should only be accessible from MAIN_SITE_DOMAINS
   // This check is to prevent malicious actors from sending messages to the extension
   const url = new URL(sender.url as string)
@@ -72,10 +80,6 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
   }
 
   switch (request.type) {
-    // Used to check for extension installation
-    case 'PING':
-      sendResponse({ type: 'PONG' })
-
     // Used to send login info to extension
     case 'OAUTH':
       chrome.storage.local.set({
