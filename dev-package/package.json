@@ -1,6 +1,10 @@
 {
-  "name": "creator-collective-js",
+  "name": "@slarsendisney/carbon-collective-js",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slarsendisney/carbon-collective"
+  },
   "description": "",
   "main": "dist/index.js",
   "types": "index.d.ts",
