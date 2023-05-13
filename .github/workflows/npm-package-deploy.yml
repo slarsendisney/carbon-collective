@@ -1,4 +1,7 @@
 name: Publish Package to NPM
+defaults:
+  run:
+    working-directory: dev-package
 on:
   release:
     types: [published]
@@ -12,8 +15,15 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: cd dev-package
+          cache-dependency-path: dev-package/package-lock.json
       - run: npm ci
+      - name: version app
+        run: npm version patch
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Commit version
+        run: |
+          git show
+          git push
+      
