@@ -14,26 +14,38 @@ export class Client {
   }
 
   private async fallbackFetch(url: string, options?: any) {
-    if (typeof fetch !== "undefined") {
-      return await fetch(url, options).then((response) => response.json());
-    } else {
-      return await axios.get(url, options).then((response: AxiosResponse) => response.data);
+    try {
+      if (typeof fetch !== "undefined") {
+        return await fetch(url, options).then((response) => response.json());
+      } else {
+        return await axios
+          .get(url, options)
+          .then((response: AxiosResponse) => response.data);
+      }
+    } catch (e) {
+      console.log(e);
+      throw new Error("Could not fetch data");
     }
   }
 
   async init() {
-    this.fallbackFetch(URLS.EXTENSION_CONFIG).then((data) => {
+    await this.fallbackFetch(URLS.EXTENSION_CONFIG)
+    .then((data) => {
       this.chromiumExtId = data.chromiumExtId;
     });
-    
   }
 
   async hasChromeExtension() {
     if (typeof chrome === "undefined") {
       return false;
     }
+
+    if (this.chromiumExtId === undefined) {
+      throw new Error("Not initialized. Please call init() first.");
+    }
+
     await chrome.runtime.sendMessage(
-      "dokaenhikhgdmjnpcmemgmlncbkdffdl",
+      this.chromiumExtId,
       { type: "PING" },
       function (response) {
         if (response && response.type === "PONG") {
@@ -45,14 +57,14 @@ export class Client {
     );
   }
 
-  async getExtensionUserId() {
+  private async getExtensionUserId() {
     const hasExt = await this.hasChromeExtension();
     if (!hasExt) {
       return undefined;
     }
 
     await chrome.runtime.sendMessage(
-      "dokaenhikhgdmjnpcmemgmlncbkdffdl",
+      this.chromiumExtId,
       { type: "GET_USER_ID" },
       function (response) {
         if (response && response.type === "USER_ID") {

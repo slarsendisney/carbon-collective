@@ -1,10 +1,8 @@
 import { getAuth } from "@clerk/nextjs/server";
-import { m } from "framer-motion";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   const { userId } = getAuth(req);
   const client_id = process.env.SQUARE_APP_ID;
   const scopes = [
