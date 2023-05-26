@@ -5,10 +5,18 @@ import { Logo } from "../logo/SquareLogo";
 
 export const Onboarding = ({ step }: { step: number }) => {
   const [currentStep, setCurrentStep] = useState(step);
+  const [siteName, setSiteName] = useState("");
+  const [siteId, setSiteId] = useState("");
 
-  const submitSiteName = useCallback(async (siteName: string) => {
+  const submitSiteName = useCallback(() => {
+    const siteId =
+      siteName.slice(0, 4).toUpperCase() +
+      "-" +
+      Math.floor(Math.random() * 1000);
+    console.log(siteId, siteName);
     setCurrentStep(3);
-  }, []);
+    setSiteId(siteId);
+  }, [siteName, setSiteId]);
 
   const renderStep = useCallback(() => {
     switch (currentStep) {
@@ -78,7 +86,10 @@ export const Onboarding = ({ step }: { step: number }) => {
         );
       case 2:
         return (
-          <form className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center" onSubmit={(e) => e.preventDefault()}>
+          <div
+            className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center"
+            
+          >
             <div className=" w-full">
               <p className="text-gray-700 pb-3">
                 Tell us the name of the site you want to add to the carbon
@@ -95,38 +106,75 @@ export const Onboarding = ({ step }: { step: number }) => {
                 id="website"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="myawesomesite.com"
-                required
+                value={siteName}
+                onChange={(e) => setSiteName(e.target.value)}
               />
             </div>
 
-            <button onClick={() => submitSiteName("test.google.com")} className="btn-primary">
+            <button onClick={() => submitSiteName()} className="btn-primary">
               Submit
             </button>
-          </form>
+          </div>
         );
       case 3:
-        return <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
-        <p>
-          Great! Your site has been added to the carbon collective. Final step is to add the following tags to the <code>{`<head>`}</code> of your site:
-        </p>
-        <div className="flex flex-col md:flex-row w-full space-x-1">
-        <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
-            {`<meta name="carbon-collective" content="cc-UNIQUE_ID"> \n`}
-            {`<script src="https://carbon-collective.vercel.app/api/carbon-collective.js"></m>`}
-        </pre>
-        <button className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full">
-            Copy
-        </button>
-        </div>
+        return (
+          <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
+            <p>
+              Your site's unique code is <code>{siteId}</code>. Please create a
+              new webhook subscription in your Square dashboard with the
+              following url:
+            </p>
+            <div className="flex flex-col md:flex-row w-full space-x-1">
+              <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
+                {`https://carbon-collective.vercel.app/api/square/webhook/${siteId}`}
+              </pre>
+              <button className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full">
+                Copy
+              </button>
+            </div>
+            <p>Please include the following events:</p>
+            <ul className="list-disc list-inside text-left">
+              <li>subscription.created</li>
+              <li>subscription.updated</li>
+              <li>ITEM_INVENTORY_UPDATED</li>
+            </ul>
 
-        <p>
-          You can find these tags on your dashboard at any time.
-        </p>
-        
-        <button onClick={() => window.location.reload()} className="btn-primary">
-          <p>All Done</p>
-        </button>
-      </div>;
+            <button
+              onClick={() => window.location.reload()}
+              className="btn-primary"
+            >
+              <p>All Done</p>
+            </button>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
+            <p>
+              Great! Your site has been added to the carbon collective. Final
+              step is to add the following tags to the <code>{`<head>`}</code>{" "}
+              of your site:
+            </p>
+            <div className="flex flex-col md:flex-row w-full space-x-1">
+              <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
+                {`<meta name="carbon-collective" content="cc-UNIQUE_ID"> \n`}
+                {`<script src="https://carbon-collective.vercel.app/api/carbon-collective.js"></m>`}
+              </pre>
+              <button className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full">
+                Copy
+              </button>
+            </div>
+
+            <p>You can find these tags on your dashboard at any time.</p>
+
+            <button
+              onClick={() => window.location.reload()}
+              className="btn-primary"
+            >
+              <p>All Done</p>
+            </button>
+          </div>
+        );
 
       default:
         break;

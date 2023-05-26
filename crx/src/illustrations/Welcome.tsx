@@ -230,7 +230,7 @@ export const WelcomeIllustration = ({
       </g>
     </svg>
   <svg viewBox="0 0 1922 1082" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_6_378)">
+    <g clipPath="url(#clip0_6_378)">
       <rect width="1922" height="1082" fill="white" />
       <path
         d="M1646.67 75H271.88C251.379 75 234.76 91.6192 234.76 112.12V1069.94C234.76 1090.44 251.379 1107.06 271.88 1107.06H1646.67C1667.17 1107.06 1683.79 1090.44 1683.79 1069.94V112.12C1683.79 91.6192 1667.17 75 1646.67 75Z"

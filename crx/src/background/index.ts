@@ -72,8 +72,6 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
   const url = new URL(sender.url as string)
   const domain = url.hostname
 
-  console.log('domain', domain)
-
   if (!configuration.verfiedDomains.includes(domain)) {
     console.error('Message from non-main site domain')
     return
@@ -104,8 +102,8 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
 
       break
     case 'GET_DOMAINS':
-      chrome.storage.local.get(['domains'], (result) => {
-        sendResponse(result.domains)
+      chrome.storage.local.get(['supported_domains', 'unsupported_domains', 'site_visit_count'], (result) => {
+        sendResponse(result)
       })
       break
     default:

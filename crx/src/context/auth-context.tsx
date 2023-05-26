@@ -64,7 +64,7 @@ export const AuthProvider = ({
   }, [])
 
   const logout = useCallback(() => {
-    chrome.storage.local.remove(['id'], () => {
+    chrome.storage.local.clear(() => {
       setAccount(undefined)
     })
   }, [])

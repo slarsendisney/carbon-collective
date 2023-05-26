@@ -13,7 +13,7 @@ export default function LinkPage() {
       process.env.NEXT_PUBLIC_EXTENSION_ID,
       { id, fullName, profileImageUrl, type: "OAUTH" },
       function (response) {
-        // console.log(response);
+        console.log(response);
       }
     );
   }, [user]);

@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react'
 import { useAuth } from '../context/auth-context'
 import { FullPageContentWrapper } from './FulPageContentWrapper'
 
 export const SettingsPage = () => {
   const { logout, account, active, toggleActive } = useAuth()
+  const [supportedDomains, setSupportedDomains] = useState([])
+  const [unsupportedDomains, setUnsupportedDomains] = useState([])
+
+  useEffect(() => {
+    chrome.storage.local.get(['supported_domains', 'unsupported_domains'], (result) => {
+      const { supported_domains, unsupported_domains } = result
+      setSupportedDomains(supported_domains)
+      setUnsupportedDomains(unsupported_domains)
+    })
+  }, [])
 
   return (
     <FullPageContentWrapper>
@@ -26,7 +37,10 @@ export const SettingsPage = () => {
           )}
           <div>To manage your subscription please visit your dashboard.</div>
           <div className="grid gap-1 w-full">
-            <a href="https://www.carboncollective.club/dashboard" className="btn-primary-medium text-center">
+            <a
+              href="https://www.carboncollective.club/dashboard"
+              className="btn-primary-medium text-center"
+            >
               Visit Dashboard
             </a>
             <button className="btn-secondary-medium" onClick={logout}>
@@ -35,7 +49,6 @@ export const SettingsPage = () => {
           </div>
         </div>
         <div className="flex flex-col w-96 h-full px-6 space-y-2">
-       
           <label className="relative inline-flex items-center cursor-pointer">
             <input
               onChange={() => toggleActive()}
@@ -56,11 +69,11 @@ export const SettingsPage = () => {
 
           <div className="grid grid-cols-2 w-full gap-2">
             <div className=" text-blue-600 border-2 border-blue-600 rounded p-2 flex flex-col items-center justify-center">
-              <p className="text-2xl">65</p>
+              <p className="text-2xl">{unsupportedDomains.length + supportedDomains.length}</p>
               <p>Site's visited</p>
             </div>
             <div className="text-blue-600 border-2 border-blue-600 rounded p-2 flex flex-col items-center justify-center">
-              <p className="text-2xl">32</p>
+              <p className="text-2xl">{supportedDomains.length}</p>
               <p>Site's Supporting</p>
             </div>
             <div className="col-span-2 text-green-600 border-2 border-green-600 rounded p-2 flex flex-col items-center justify-center">

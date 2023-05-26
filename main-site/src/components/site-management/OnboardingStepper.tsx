@@ -1,8 +1,8 @@
-import { CommandLineIcon, FingerPrintIcon, HandThumbUpIcon } from "@heroicons/react/24/solid";
+import { CommandLineIcon, FingerPrintIcon, HandThumbUpIcon, WifiIcon } from "@heroicons/react/24/solid";
 import { Logo } from "../logo/SquareLogo";
 export const OnboardingStepper = ({ step }: { step: number }) => (
   <ol className="flex items-center justify-center w-full mx-auto max-w-xl">
-    {[HandThumbUpIcon, Logo, FingerPrintIcon, CommandLineIcon].map((Icon, index) => (
+    {[HandThumbUpIcon, Logo, FingerPrintIcon, WifiIcon, CommandLineIcon].map((Icon, index) => (
       <li
         key={Icon.name}
         className={`${
@@ -10,7 +10,7 @@ export const OnboardingStepper = ({ step }: { step: number }) => (
             ? "flex items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800"
             : "flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700"
         }
-        ${index !== 3 && "w-full"}
+        ${index !== 4 && "w-full"}
         `}
       >
         <span

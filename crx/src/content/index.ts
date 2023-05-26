@@ -23,4 +23,33 @@ if (!isSupportedSite) {
   })
 }
 
+chrome.storage.local.get(['supported_domains', 'unsupported_domains', 'site_visit_count'], (result) => {
+
+  if(domain === 'localhost'){
+    return
+  }
+  
+  const { supported_domains = [], unsupported_domains=[], site_visit_count={} } = result
+
+  if(site_visit_count[domain]){
+    site_visit_count[domain]++
+  } else {
+    site_visit_count[domain] = 1
+  }
+  
+  if(isSupportedSite && !supported_domains.includes(domain)){
+    supported_domains.push(domain)
+  }
+
+  if(!isSupportedSite && !unsupported_domains.includes(domain)){
+    unsupported_domains.push(domain)
+  }
+
+  chrome.storage.local.set({
+    supported_domains,
+    unsupported_domains,
+    site_visit_count
+  })
+})
+
 export {}

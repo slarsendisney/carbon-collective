@@ -2,6 +2,7 @@ const verfiedDomains = [
   'carbon-collective.vercel.app',
   'carboncollective.club',
   'www.carboncollective.club',
+  'localhost',
 ]
 
 if (process.env.NODE_ENV === 'development') {
