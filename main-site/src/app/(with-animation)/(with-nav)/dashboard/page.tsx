@@ -1,45 +1,28 @@
 "use client";
 import { AnalysingIllustration } from "@/components/illustrations/Analysing";
 import { LittleSpinner } from "@/components/loading/LittleSpinner";
+import { useAudit } from "@/context/audit-context";
 import {
   ArrowRightIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const SIZE = 9;
 const CARBON = SIZE * 10;
 const TREECOUNT = Math.ceil((CARBON * 10) / 21);
+
 const Dashboard = () => {
-  const [topSites, setTopSites] = useState<string[]>([]);
-  const [supportedDomains, setSupportedDomains] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (!chrome?.runtime) return;
-    chrome.runtime.sendMessage(
-      process.env.NEXT_PUBLIC_EXTENSION_ID,
-      { type: "GET_DOMAINS" },
-      function (response) {
-        const { site_visit_count, supported_domains } = response;
-        // get top 10 sites
-        const newTopSites = Object.keys(site_visit_count)
-          .sort((a, b) => site_visit_count[b] - site_visit_count[a])
-          .slice(0, 8);
-        setTopSites(newTopSites);
-        setSupportedDomains(supported_domains);
-        
-      }
-    );
-  }, []);
-
+ 
+  const {topSites, supportedDomains, loadingDetails} = useAudit()
+ 
   if (topSites.length < 4)
     return (
       <div className="flex flex-col items-center bg-blue-100 py-12 px-2 grow space-y-4">
         <div className="flex items-center space-x-1">
-              <LittleSpinner className="text-blue-600"/>
-              <p className="font-semibold">Analyzing Web Usage</p>
-            </div>
+          <LittleSpinner className="text-blue-600" />
+          <p className="font-semibold">Analyzing Web Usage</p>
+        </div>
         <div className="card">
           <div className="flex items-center w-full pl-5 pr-2 py-2  rounded space-x-2">
             <AnalysingIllustration className="w-32 h-full" />
@@ -87,29 +70,43 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-            <div className="bg-white p-5 rounded md:col-span-2">
-              <p className="text-xl font-medium">Summary</p>
-              <p>
-                By subscribing to sites within the carbon collective you could
-                save {CARBON}g of carbon per day.
-              </p>
-              <div className="w-64 ml-auto">
-                <Link
-                  href="/subscribe"
-                  className="btn-primary text-sm flex space-x-1 p-1"
-                >
-                  <p>Subscribe</p>
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
+            {loadingDetails ? (
+              <div className="bg-white p-5 rounded md:col-span-2">
+                <p className="text-xl font-medium">Doing some math...</p>
+                <p>
+                  Give us a moment, we're just learning about the sites you've
+                  been interacting wtih to create the perfect plan. This can take up to 30 seconds.
+                </p>
               </div>
-            </div>
+            ) : (
+              <div className="bg-white p-5 rounded md:col-span-2">
+                <p className="text-xl font-medium">Summary</p>
+                <p>
+                  By subscribing to sites within the carbon collective you could
+                  save {CARBON}g of carbon per day.
+                </p>
+                <div className="w-64 ml-auto">
+                  <Link
+                    href="/subscribe"
+                    className="btn-primary text-sm flex space-x-1 p-1"
+                  >
+                    <p>Subscribe</p>
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            )}
           </>
         </div>
       </div>
 
       <div className="flex flex-col items-center bg-white py-12 px-2">
         <div className="max-w-5xl mx-auto w-full rounded bg-blue-100 p-5">
-          <p>Subscription Management</p>
+          <p>Unsupported sites</p>
+          <p>
+            Of the sites that you have been visiting, the site that produces the
+            most carbon is TEMP_SITE. Why not reach out to them and ask them to join the carbon collective?
+          </p>
         </div>
       </div>
     </>
