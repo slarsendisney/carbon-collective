@@ -29,8 +29,7 @@ export class Client {
   }
 
   async init() {
-    await this.fallbackFetch(URLS.EXTENSION_CONFIG)
-    .then((data) => {
+    await this.fallbackFetch(URLS.EXTENSION_CONFIG).then((data) => {
       this.chromiumExtId = data.chromiumExtId;
     });
   }
@@ -76,6 +75,17 @@ export class Client {
     );
   }
 
+  private async communicateSubscriptionStatus(subscribed: boolean) {
+    const hasExt = await this.hasChromeExtension();
+    if (!hasExt) {
+      return undefined;
+    }
+    await chrome.runtime.sendMessage(
+      this.chromiumExtId,
+      { type: "SITE_SUBSCRIPTION_STATUS", value: subscribed }
+    );
+  }
+
   async isSubscribed() {
     const hasExt = await this.hasChromeExtension();
     if (!hasExt) {
@@ -93,6 +103,7 @@ export class Client {
       }),
     })
       .then((data) => {
+        this.communicateSubscriptionStatus(data.subscribed)
         return data.subscribed;
       })
       .catch(() => {

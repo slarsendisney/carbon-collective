@@ -13,9 +13,10 @@ const CARBON = SIZE * 10;
 const TREECOUNT = Math.ceil((CARBON * 10) / 21);
 
 const Dashboard = () => {
- 
-  const {topSites, supportedDomains, loadingDetails} = useAudit()
- 
+  const { topSites, supportedDomains, loadingDetails, detailsRes } = useAudit();
+  console.log(supportedDomains)
+  console.log(detailsRes);
+
   if (topSites.length < 4)
     return (
       <div className="flex flex-col items-center bg-blue-100 py-12 px-2 grow space-y-4">
@@ -75,22 +76,42 @@ const Dashboard = () => {
                 <p className="text-xl font-medium">Doing some math...</p>
                 <p>
                   Give us a moment, we're just learning about the sites you've
-                  been interacting wtih to create the perfect plan. This can take up to 30 seconds.
+                  been interacting wtih to create the perfect plan. This can
+                  take up to 30 seconds.
                 </p>
               </div>
             ) : (
               <div className="bg-white p-5 rounded md:col-span-2">
                 <p className="text-xl font-medium">Summary</p>
                 <p>
-                  By subscribing to sites within the carbon collective you could
-                  save {CARBON}g of carbon per day.
+                  We've created a custom subscription plan just for you. By
+                  subscribing to the sites you visit that are within the carbon
+                  collective you could save{" "}
+                  {Math.floor(
+                    detailsRes.audits
+                      .filter(({ sitename, audit }:{
+                        sitename: string;
+                        audit: { carbon: number };
+                      }) => {
+                        return (
+                          supportedDomains.includes(sitename) && audit !== null
+                        );
+                      })
+                      .reduce(
+                        (acc: number, cur: { audit: { carbon: number } }) => {
+                          acc += cur.audit.carbon;
+                        },
+                        0
+                      )
+                  )}
+                  g of carbon per day.
                 </p>
                 <div className="w-64 ml-auto">
                   <Link
                     href="/subscribe"
                     className="btn-primary text-sm flex space-x-1 p-1"
                   >
-                    <p>Subscribe</p>
+                    <p>See your plan</p>
                     <ArrowRightIcon className="w-4 h-4" />
                   </Link>
                 </div>
@@ -105,7 +126,8 @@ const Dashboard = () => {
           <p>Unsupported sites</p>
           <p>
             Of the sites that you have been visiting, the site that produces the
-            most carbon is TEMP_SITE. Why not reach out to them and ask them to join the carbon collective?
+            most carbon is TEMP_SITE. Why not reach out to them and ask them to
+            join the carbon collective?
           </p>
         </div>
       </div>

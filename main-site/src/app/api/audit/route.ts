@@ -11,10 +11,10 @@ export async function POST(request: Request) {
 
   const auditResults = await Promise.all(
     sites.map(async (site: string) => {
+
+      try{
       // use cached audit if available
       const audit = await kv.hgetall(`audit-${site}`);
-
-      console.log(site, audit)
 
       if (audit) {
         return {
@@ -42,6 +42,14 @@ export async function POST(request: Request) {
         site,
         audit: auditData,
       };
+
+    } catch (e) {
+      console.dir(e)
+      return {
+        site,
+        audit: null,
+      };
+    }
     })
   );
 

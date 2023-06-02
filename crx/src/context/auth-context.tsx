@@ -16,7 +16,9 @@ export const AuthContext = createContext({
   logout: () => {},
   account: undefined as Account | undefined,
   active: true,
-  toggleActive: () => {}
+  toggleActive: () => {},
+  onSubscribedSite: false,
+  domain: ""
 })
 
 export const AuthProvider = ({
@@ -30,19 +32,32 @@ export const AuthProvider = ({
   const [onCreativeCollectiveSite, setOnCreativeCollectiveSite] = useState(false)
   const [loading, setLoading] = useState(true)
   const [active, setActive] = useState(true)
+  const [onSubscribedSite, setOnSubscribedSite] = useState(true)
+  const [domain, setDomain] = useState("")
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
       var activeTab = tabs[0]
       var activeTabURL = activeTab.url
+      const url = new URL(activeTabURL as string)
+      const domain = url.hostname
       if (
         configuration.verfiedDomains.some((domain) => activeTabURL?.includes(domain)) ||
         (!isOptions && activeTabURL?.includes('dokaenhikhgdmjnpcmemgmlncbkdffdl'))
       ) {
         setOnCreativeCollectiveSite(true)
       }
+      setDomain(domain)
+      // chrome.storage.local.get(['subscriptions'], (result) => {
+      //   const activeSubscriptions = result.subscriptions || {}
+      //   if (activeSubscriptions[domain]) {
+      //     setOnSubscribedSite(true)
+      //   } else {
+      //     setOnSubscribedSite(false)
+      //   }
+      // })
     })
-  })
+  }, [])
 
   useEffect(() => {
     chrome.storage.local.get(['id', 'fullName', 'profileImageUrl', 'active'], async (result) => {
@@ -52,7 +67,7 @@ export const AuthProvider = ({
           fullName: result.fullName,
           profileImageUrl: result.profileImageUrl,
         })
-        if(result.active !== undefined) {
+        if (result.active !== undefined) {
           setActive(result.active)
         }
       } else {
@@ -70,13 +85,13 @@ export const AuthProvider = ({
   }, [])
 
   const toggleActive = useCallback(() => {
-    chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor  })
+    chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
     const newVal = !active
     setActive(newVal)
     chrome.storage.local.set({
       active: newVal,
     })
-    if(newVal){
+    if (newVal) {
       chrome.action.setBadgeText({ text: '' })
     } else {
       chrome.action.setBadgeText({ text: '⏸' })
@@ -96,7 +111,6 @@ export const AuthProvider = ({
     }
     return <Login />
   }
-  
 
   if (onCreativeCollectiveSite) {
     return (
@@ -105,7 +119,9 @@ export const AuthProvider = ({
           account,
           logout,
           active,
-          toggleActive
+          toggleActive,
+          onSubscribedSite,
+          domain
         }}
       >
         <Ready />
@@ -119,7 +135,9 @@ export const AuthProvider = ({
         account,
         logout,
         active,
-        toggleActive
+        toggleActive,
+        onSubscribedSite,
+        domain
       }}
     >
       {children}

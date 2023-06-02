@@ -65,6 +65,27 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
     // Used to check for extension installation
     case 'PING':
       sendResponse({ type: 'PONG' })
+    case 'SITE_SUBSCRIPTION_STATUS':
+     
+      chrome.storage.local.get(["subscriptions"], (result) => {
+        const isSubscribed = request.value
+        const url = new URL(sender.url as string)
+        const domain = url.hostname
+        const activeSubscriptions = result.subscriptions || {}
+        activeSubscriptions[domain] = isSubscribed
+        chrome.storage.local.set({
+          subscriptions: activeSubscriptions
+        })
+      })
+      
+    case 'GET_USER_ID':
+      chrome.storage.local.get(['id'], (result) => {
+        sendResponse({
+          type: 'USER_ID',
+          userId: result.id
+        })
+      })
+
   }
 
   // Message past this point should only be accessible from MAIN_SITE_DOMAINS

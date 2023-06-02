@@ -13,7 +13,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.16.2",
+    "@clerk/nextjs": "^4.19.0",
     "@heroicons/react": "^2.0.17",
     "@types/chrome": "^0.0.235",
     "@types/node": "18.15.11",
