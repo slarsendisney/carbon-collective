@@ -3,8 +3,7 @@ import { NextResponse } from "next/server";
 
 
 export default authMiddleware({
-  publicRoutes:  ["/", "/playground", "/sign-in", "/sign-up"],
-  ignoredRoutes: ["/api/square/webhook", "/api/extension-config", "/api/subscribed", "/api/audit"],
+  publicRoutes:  ["/", "/playground", "/sign-in", "/sign-up", "/api/square/webhook", "/api/extension-config", "/api/subscribed", "/api/audit"],
 });
 
 export const config = {
