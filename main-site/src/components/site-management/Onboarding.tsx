@@ -10,10 +10,12 @@ export const Onboarding = ({ step }: { step: number }) => {
 
   const submitSiteName = useCallback(() => {
     const siteId =
-      siteName.slice(0, 4).toUpperCase() +
+      siteName
+        .replace(/[^a-zA-Z0-9]/g, "")
+        .slice(0, 4)
+        .toUpperCase() +
       "-" +
       Math.floor(Math.random() * 1000);
-    console.log(siteId, siteName);
     setCurrentStep(3);
     setSiteId(siteId);
   }, [siteName, setSiteId]);
@@ -86,10 +88,7 @@ export const Onboarding = ({ step }: { step: number }) => {
         );
       case 2:
         return (
-          <div
-            className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center"
-            
-          >
+          <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
             <div className=" w-full">
               <p className="text-gray-700 pb-3">
                 Tell us the name of the site you want to add to the carbon
@@ -99,10 +98,9 @@ export const Onboarding = ({ step }: { step: number }) => {
                 htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Your Site's name
+                Your Site's domain
               </label>
               <input
-                type="website"
                 id="website"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="myawesomesite.com"
@@ -120,24 +118,9 @@ export const Onboarding = ({ step }: { step: number }) => {
         return (
           <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
             <p>
-              Your site's unique code is <code>{siteId}</code>. Please create a
-              new webhook subscription in your Square dashboard with the
-              following url:
+              Your site's unique code is <code>{siteId}</code>. Please make a
+              note of this.
             </p>
-            <div className="flex flex-col md:flex-row w-full space-x-1">
-              <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
-                {`https://carbon-collective.vercel.app/api/square/webhook/${siteId}`}
-              </pre>
-              <button className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full">
-                Copy
-              </button>
-            </div>
-            <p>Please include the following events:</p>
-            <ul className="list-disc list-inside text-left">
-              <li>subscription.created</li>
-              <li>subscription.updated</li>
-              <li>ITEM_INVENTORY_UPDATED</li>
-            </ul>
 
             <button
               onClick={() => window.location.reload()}
@@ -179,7 +162,7 @@ export const Onboarding = ({ step }: { step: number }) => {
       default:
         break;
     }
-  }, [currentStep]);
+  }, [currentStep, siteName]);
 
   return (
     <div className="flex flex-col items-center justify-center grow bg-blue-100 space-y-3">

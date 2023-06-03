@@ -1,6 +1,7 @@
 "use client";
 import { AnalysingIllustration } from "@/components/illustrations/Analysing";
 import { LittleSpinner } from "@/components/loading/LittleSpinner";
+import { LoadingSpinner } from "@/components/loading/LoadingSpinner";
 import { useAudit } from "@/context/audit-context";
 import {
   ArrowRightIcon,
@@ -73,7 +74,10 @@ const Dashboard = () => {
             </div>
             {loadingDetails ? (
               <div className="bg-white p-5 rounded md:col-span-2">
+                <div className="flex items-center">
+                  <LoadingSpinner  />
                 <p className="text-xl font-medium">Doing some math...</p>
+                </div>
                 <p>
                   Give us a moment, we're just learning about the sites you've
                   been interacting wtih to create the perfect plan. This can
@@ -81,7 +85,7 @@ const Dashboard = () => {
                 </p>
               </div>
             ) : (
-              <div className="bg-white p-5 rounded md:col-span-2">
+              <div className="bg-white p-5 rounded md:col-span-2 space-y-2">
                 <p className="text-xl font-medium">Summary</p>
                 <p>
                   We've created a custom subscription plan just for you. By
@@ -101,7 +105,7 @@ const Dashboard = () => {
                         (acc: number, cur: { audit: { carbon: number } }) => {
                           acc += cur.audit.carbon;
                         },
-                        0
+                        5
                       )
                   )}
                   g of carbon per day.
