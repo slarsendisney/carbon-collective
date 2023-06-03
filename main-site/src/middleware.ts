@@ -1,11 +1,10 @@
 import { authMiddleware } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
-// Set the paths that don't require the user to be signed in
-const publicPaths = ["/", "/playground", "/sign-in", "/sign-up", "/api/extension-config", "/api/subscribed", "/api/audit", "/api/square/webhook"];
 
 export default authMiddleware({
-  publicRoutes: publicPaths,
+  publicRoutes:  ["/", "/playground", "/sign-in", "/sign-up"],
+  ignoredRoutes: ["/api/square/webhook", "/api/extension-config", "/api/subscribed", "/api/audit"],
 });
 
 export const config = {
