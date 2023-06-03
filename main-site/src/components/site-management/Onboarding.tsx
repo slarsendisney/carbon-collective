@@ -123,7 +123,7 @@ export const Onboarding = ({ step }: { step: number }) => {
             </p>
 
             <button
-              onClick={() => window.location.reload()}
+              onClick={() => setCurrentStep(4)}
               className="btn-primary"
             >
               <p>All Done</p>

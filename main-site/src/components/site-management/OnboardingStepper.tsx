@@ -2,7 +2,7 @@ import { CommandLineIcon, FingerPrintIcon, HandThumbUpIcon, WifiIcon } from "@he
 import { Logo } from "../logo/SquareLogo";
 export const OnboardingStepper = ({ step }: { step: number }) => (
   <ol className="flex items-center justify-center w-full mx-auto max-w-xl">
-    {[HandThumbUpIcon, Logo, FingerPrintIcon, WifiIcon, CommandLineIcon].map((Icon, index) => (
+    {[HandThumbUpIcon, Logo, FingerPrintIcon, CommandLineIcon].map((Icon, index) => (
       <li
         key={Icon.name}
         className={`${
