@@ -15,8 +15,6 @@ const TREECOUNT = Math.ceil((CARBON * 10) / 21);
 
 const Dashboard = () => {
   const { topSites, supportedDomains, loadingDetails, detailsRes } = useAudit();
-  console.log(supportedDomains)
-  console.log(detailsRes);
 
   if (topSites.length < 4)
     return (

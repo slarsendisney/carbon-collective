@@ -2,8 +2,10 @@
 import { useCallback, useState } from "react";
 import { OnboardingStepper } from "./OnboardingStepper";
 import { Logo } from "../logo/SquareLogo";
+import { useRouter } from "next/navigation";
 
 export const Onboarding = ({ step }: { step: number }) => {
+  const {push} = useRouter();
   const [currentStep, setCurrentStep] = useState(step);
   const [siteName, setSiteName] = useState("");
   const [siteId, setSiteId] = useState("");
@@ -19,6 +21,17 @@ export const Onboarding = ({ step }: { step: number }) => {
     setCurrentStep(3);
     setSiteId(siteId);
   }, [siteName, setSiteId]);
+
+  const submitSiteId = useCallback(async () => {
+    await fetch("/api/site-submit", {
+      method: "POST",
+      body: JSON.stringify({
+        siteId,
+        siteName,
+      }),
+    })
+    setCurrentStep(4);
+  }, [siteId, siteName]);
 
   const renderStep = useCallback(() => {
     switch (currentStep) {
@@ -123,7 +136,7 @@ export const Onboarding = ({ step }: { step: number }) => {
             </p>
 
             <button
-              onClick={() => setCurrentStep(4)}
+              onClick={() => submitSiteId()}
               className="btn-primary"
             >
               <p>All Done</p>
@@ -151,7 +164,7 @@ export const Onboarding = ({ step }: { step: number }) => {
             <p>You can find these tags on your dashboard at any time.</p>
 
             <button
-              onClick={() => window.location.reload()}
+              onClick={() => push("/sites")}
               className="btn-primary"
             >
               <p>All Done</p>

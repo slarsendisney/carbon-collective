@@ -1,17 +1,15 @@
-
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  console.log(req)
+  console.log(req);
   return NextResponse.json({
-    message: "Hello, World!",
-    });
+    status: 200,
+  });
 }
 
-
 export async function POST(req: NextRequest) {
-  console.log(req.body)
+  console.log(req.body);
   return NextResponse.json({
-    message: "Hello, World!",
-    });
+    status: 200,
+  });
 }

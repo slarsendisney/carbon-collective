@@ -5,20 +5,27 @@ interface AuditContextAttributes {
     topSites: string[],
     supportedDomains: string[],
     loadingDetails: boolean,
-    detailsRes: any
+    detailsRes: any,
+    domainCollectiveIDs: {
+        [key: string]: string;
+    }
 }
 
 const AuditContext = React.createContext<AuditContextAttributes>({
   topSites: [],
   supportedDomains: [],
   loadingDetails: true,
-  detailsRes: null
+  detailsRes: null,
+  domainCollectiveIDs: {}
 });
 
 export const AuditProvider = ({ ...props }) => {
 
     const [topSites, setTopSites] = useState<string[]>([]);
     const [supportedDomains, setSupportedDomains] = useState<string[]>([]);
+    const [domainCollectiveIDs, setDomainCollectiveIDs] = useState<{
+        [key: string]: string;
+    }>({});
     const [loadingDetails, setLoadingDetails] = useState<boolean>(true);
     const [detailsRes, setDetailsRes] = useState<any>();
 
@@ -28,13 +35,14 @@ export const AuditProvider = ({ ...props }) => {
           process.env.NEXT_PUBLIC_EXTENSION_ID,
           { type: "GET_DOMAINS" },
           function (response) {
-            const { site_visit_count, supported_domains } = response;
+            const { site_visit_count, supported_domains, domainCollectiveIDs } = response;
             // get top 10 sites
             const newTopSites = Object.keys(site_visit_count)
               .sort((a, b) => site_visit_count[b] - site_visit_count[a])
               .slice(0, 8);
             setTopSites(newTopSites);
             setSupportedDomains(supported_domains);
+            setDomainCollectiveIDs(domainCollectiveIDs);
           }
         );
       }, []);
@@ -63,7 +71,8 @@ export const AuditProvider = ({ ...props }) => {
         topSites,
         supportedDomains,
         loadingDetails,
-        detailsRes
+        detailsRes,
+        domainCollectiveIDs
       }}
     >
       {props.children}

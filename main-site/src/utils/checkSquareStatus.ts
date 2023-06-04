@@ -4,11 +4,12 @@ import squareClient from "./squareClient";
 export default async function checkSquareStatus(userId: string): Promise<{
   authenticated: boolean;
   token: string | null;
+  sites: string[];
 }> {
   const user = await kv.hgetall(userId);
-  if (!user || !user.accessToken) return { authenticated: false, token: null };
+  if (!user || !user.accessToken) return { authenticated: false, token: null, sites: [] };
 
-  const { accessToken, refreshToken, expiresAt, refreshAt } = user as Record<
+  const { accessToken, refreshToken, refreshAt } = user as Record<
     string,
     string
   >;
@@ -45,6 +46,7 @@ export default async function checkSquareStatus(userId: string): Promise<{
       return {
         authenticated: true,
         token: tokenToUse,
+        sites: (user?.sites || []) as string[],
       };
     }
   } catch (error) {
@@ -53,5 +55,6 @@ export default async function checkSquareStatus(userId: string): Promise<{
   return {
     authenticated: true,
     token: tokenToUse,
+    sites: (user?.sites || []) as string[],
   }
 }

@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 
 const Subscribe = () => {
-  const { supportedDomains, detailsRes, topSites } = useAudit();
+  const { supportedDomains, detailsRes, topSites, domainCollectiveIDs } = useAudit();
 
   return (
     <div className="flex flex-col items-center bg-blue-100 py-12 px-2">
@@ -32,6 +32,8 @@ const Subscribe = () => {
             const report = detailsRes.audits.find(({ sitename }:{
               sitename: string;
             }) => sitename === site);
+
+            const siteId = domainCollectiveIDs[site];
             const carbon = (report?.carbon || 3.5).toFixed(1);
 
             const importance = topSites.findIndex((s) => s === site);
@@ -41,19 +43,19 @@ const Subscribe = () => {
 
 
             return (
-            <button className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
+            <a href={`/api/square/checkout/${siteId}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
               <div className="flex items-center space-x-1">
                 <div className="flex items-center space-x-1 text-green-800 bg-green-400 px-2 py-1 text-sm rounded-full">
                   <GlobeAmericasIcon className="w-5 h-5 " />
                   {carbon}g CO2
                 </div>
-                <p className="text-lg">{site}</p>
+                <p className="text-lg">{site} | {report?.siteId}</p>
               </div>
               <div className="flex items-center space-x-2">
              <p className="text-lg font-bold">{price}</p>
               <ArrowRightCircleIcon className="w-5 h-5" />
               </div>
-            </button>
+            </a>
           )})}
         </div>
       </div>

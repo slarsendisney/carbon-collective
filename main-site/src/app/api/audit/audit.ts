@@ -1,4 +1,7 @@
 const addProtocolIfMissing = (url: string) => {
+  if(url === "carboncollective.club"){
+    return `https://www.${url}`
+  }
   if (!url.startsWith("http")) {
     return `https://${url}`;
   }

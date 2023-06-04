@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <meta name='carbon-collective'  content="12312312312" />
+      <meta name='carbon-collective' content="CARB-72" />
       <html lang="en">
         <body>{children}</body>
       </html>
