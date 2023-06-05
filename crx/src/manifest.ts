@@ -33,6 +33,8 @@ export default defineManifest({
   externally_connectable: {
     "ids": ["*"],
     "matches": [
+      // allow all domains
+      "*://*/*",
       "*://localhost/*",
       "*://carbon-collective.vercel.app/*",
       "*://carboncollective.club/*",

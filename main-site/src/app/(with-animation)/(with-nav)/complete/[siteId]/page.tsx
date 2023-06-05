@@ -21,8 +21,11 @@ const Complete = async ({
   if (!user.subscripedSites) {
     user.subscripedSites = [];
   }
+  if(!user.subscripedSites.includes(siteId)) {
 
   user.subscripedSites.push(siteId);
+
+  }
 
   await kv.hset(userId as string, user);
   await kv.set(`subscribed-${userId}-${siteId}`, true)

@@ -1,10 +1,5 @@
-const CarbonCollective = require("carbon-collective-js");
+const CarbonCollective = require("carbon-collective");
 
-async function main() {
-  const carbonCollective = new CarbonCollective("SITE_ID");
-  await carbonCollective.init();
-  const isSubscribed = await carbonCollective.isSubscribed();
-  console.log("isSubscribed", isSubscribed);
-}
-
-main();
+const carbonCollective = new CarbonCollective("SITE_ID");
+await carbonCollective.init();
+const isSubscribed = await carbonCollective.isSubscribed();

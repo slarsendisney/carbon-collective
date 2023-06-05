@@ -3,6 +3,7 @@ import { AnalysingIllustration } from "@/components/illustrations/Analysing";
 import { LittleSpinner } from "@/components/loading/LittleSpinner";
 import { LoadingSpinner } from "@/components/loading/LoadingSpinner";
 import { useAudit } from "@/context/audit-context";
+import { HandThumbUpIcon, PauseCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import {
   ArrowRightIcon,
   ExclamationTriangleIcon,
@@ -14,13 +15,22 @@ const CARBON = SIZE * 10;
 const TREECOUNT = Math.ceil((CARBON * 10) / 21);
 
 const ClientSideDashboard = ({
-    subscribedSiteIds
+  subscribedSiteIds,
 }: {
-    subscribedSiteIds: string[];
+  subscribedSiteIds: string[];
 }) => {
-  const { topSites, supportedDomains, loadingDetails, detailsRes } = useAudit();
+  console.log(subscribedSiteIds);
+  const {
+    topSites,
+    supportedDomains,
+    loadingDetails,
+    detailsRes,
+    domainCollectiveIDs,
+  } = useAudit();
+  const removedDuplicates = subscribedSiteIds.filter((site, index) => {
+    return subscribedSiteIds.indexOf(site) === index;
+  });
 
-  console.log(detailsRes)
   if (topSites.length < 4)
     return (
       <div className="flex flex-col items-center bg-blue-100 py-12 px-2 grow space-y-4">
@@ -59,7 +69,7 @@ const ClientSideDashboard = ({
               <div className="space-y-1">
                 <p className="text-xl font-medium">Your Top Sites</p>
 
-                {topSites.slice(0,8).map((site, i) => (
+                {topSites.slice(0, 8).map((site, i) => (
                   <div className="flex items-center space-x-1">
                     <div
                       className={`h-5 w-5 ${
@@ -77,7 +87,7 @@ const ClientSideDashboard = ({
             </div>
             {loadingDetails ? (
               <div className="bg-white p-5 rounded md:col-span-2">
-                <div className="flex items-center">
+                <div className="flex items-center space-x-1">
                   <LoadingSpinner />
                   <p className="text-xl font-medium">Doing some math...</p>
                 </div>
@@ -134,46 +144,74 @@ const ClientSideDashboard = ({
         </div>
       </div>
 
-      <div className="flex flex-col items-center bg-white py-12 px-2 grow">
+      <div className="flex flex-col items-center bg-white py-12 px-2 grow space-y-4">
+        {removedDuplicates.length > 0 && (
+          <div className="max-w-5xl mx-auto w-full rounded bg-green-100 p-5">
+            <p className="text-xl font-medium mb-1">Your subscriptions</p>
+            {removedDuplicates.map((siteId) => {
+              const site = Object.keys(domainCollectiveIDs).find(
+                (key) => domainCollectiveIDs[key] === siteId
+              );
+              return (
+                <div className="flex flex-nowrap items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-2">
+                    <div
+                      className={`p-1 bg-green-600 text-white rounded flex items-center justify-center`}
+                    >
+                        <HandThumbUpIcon className="h-4 w-4" />
+                    </div>
+                    <p>{site}</p>
+                  </div>
+                  <div className="flex items-center justify-end">
+                    <PauseCircleIcon className="h-6 w-6" />
+                    <XCircleIcon className="h-6 w-6" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
         {detailsRes && (
           <div className="max-w-5xl mx-auto w-full rounded bg-blue-100 p-5">
             <p className="text-xl font-medium">Unsupported sites</p>
             <p>
               Of the sites that you have been visiting, the site that produces
               the most carbon is{" "}
-              {detailsRes.audits
-                .filter(
-                  ({
-                    sitename,
-                    audit,
-                  }: {
-                    sitename: string;
-                    audit: { carbon: number };
-                  }) => {
-                    return (
-                      !supportedDomains.includes(sitename) && audit !== null
-                    );
-                  }
-                )
-                .reduce(
-                  (
-                    acc: {
-                      site: string;
-                      carbon: number;
-                    },
-                    cur: { audit: { carbon: number }; site: string }
-                  ) => {
-                    if (cur.audit.carbon > acc.carbon) {
-                      acc.site = cur.site;
-                      acc.carbon = cur.audit.carbon;
+              {
+                detailsRes.audits
+                  .filter(
+                    ({
+                      sitename,
+                      audit,
+                    }: {
+                      sitename: string;
+                      audit: { carbon: number };
+                    }) => {
+                      return (
+                        !supportedDomains.includes(sitename) && audit !== null
+                      );
                     }
-                    return acc;
-                  },
-                  {
-                    site: "",
-                    carbon: 0,
-                  }
-                ).site}
+                  )
+                  .reduce(
+                    (
+                      acc: {
+                        site: string;
+                        carbon: number;
+                      },
+                      cur: { audit: { carbon: number }; site: string }
+                    ) => {
+                      if (cur.audit.carbon > acc.carbon) {
+                        acc.site = cur.site;
+                        acc.carbon = cur.audit.carbon;
+                      }
+                      return acc;
+                    },
+                    {
+                      site: "",
+                      carbon: 0,
+                    }
+                  ).site
+              }
               . Why not reach out to them and ask them to join the carbon
               collective?
             </p>

@@ -5,7 +5,7 @@ import { Logo } from "../logo/SquareLogo";
 import { useRouter } from "next/navigation";
 
 export const Onboarding = ({ step }: { step: number }) => {
-  const {push} = useRouter();
+  const { push } = useRouter();
   const [currentStep, setCurrentStep] = useState(step);
   const [siteName, setSiteName] = useState("");
   const [siteId, setSiteId] = useState("");
@@ -19,9 +19,9 @@ export const Onboarding = ({ step }: { step: number }) => {
       "-" +
       Math.floor(Math.random() * 1000);
     setCurrentStep(3);
-    if(siteName==="carboncollective.club"){
-      setSiteId("CARB-72")
-      return
+    if (siteName === "carboncollective.club") {
+      setSiteId("CARB-72");
+      return;
     }
     setSiteId(siteId);
   }, [siteName, setSiteId]);
@@ -33,7 +33,7 @@ export const Onboarding = ({ step }: { step: number }) => {
         siteId,
         siteName,
       }),
-    })
+    });
     setCurrentStep(4);
   }, [siteId, siteName]);
 
@@ -108,8 +108,8 @@ export const Onboarding = ({ step }: { step: number }) => {
           <div className="text-left p-6 max-w-xl mx-auto space-y-3 flex flex-col items-center">
             <div className=" w-full">
               <p className="text-gray-700 pb-3">
-                Tell us the name of the site you want to add to the carbon
-                collective. This will be publically visible.
+                Tell us the domain of the site you want to add to the carbon
+                collective.
               </p>
               <label
                 htmlFor="email"
@@ -139,10 +139,7 @@ export const Onboarding = ({ step }: { step: number }) => {
               note of this.
             </p>
 
-            <button
-              onClick={() => submitSiteId()}
-              className="btn-primary"
-            >
+            <button onClick={() => submitSiteId()} className="btn-primary">
               <p>All Done</p>
             </button>
           </div>
@@ -157,20 +154,33 @@ export const Onboarding = ({ step }: { step: number }) => {
             </p>
             <div className="flex flex-col md:flex-row w-full space-x-1">
               <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
-                {`<meta name="carbon-collective" content="cc-UNIQUE_ID"> \n`}
-                {`<script src="https://carbon-collective.vercel.app/api/carbon-collective.js"></m>`}
+                {`<meta name="carbon-collective" content="${siteId}"> \n`}
               </pre>
-              <button className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `<meta name="carbon-collective" content="${siteId}">`
+                  );
+                }}
+                className="flex items-center justify-center space-x-2 text-blue-700 border-blue-600 border-2  hover:bg-blue-50 rounded p-1 h-full"
+              >
                 Copy
               </button>
             </div>
 
-            <p>You can find these tags on your dashboard at any time.</p>
+            <p>Also install our JS package:</p>
+            <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
+              {`npm install carbon-collective`}
+            </pre>
+            <p>Find a visitors subscription state:</p>
+            <pre className="bg-gray-700 text-white px-2 w-full py-2 rounded text-xs overflow-x-scroll">
+              {`const CarbonCollective = require("carbon-collective");\n
+const carbonCollective = new CarbonCollective("SITE_ID");\n
+await carbonCollective.init();\n
+const isSubscribed = await carbonCollective.isSubscribed();`}
+            </pre>
 
-            <button
-              onClick={() => push("/sites")}
-              className="btn-primary"
-            >
+            <button onClick={() => push("/sites")} className="btn-primary">
               <p>All Done</p>
             </button>
           </div>

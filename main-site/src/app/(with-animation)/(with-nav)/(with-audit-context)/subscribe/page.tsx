@@ -9,7 +9,7 @@ const Subscribe = () => {
   const { supportedDomains, detailsRes, topSites, domainCollectiveIDs } = useAudit();
 
   return (
-    <div className="flex flex-col items-center bg-blue-100 py-12 px-2">
+    <div className="flex flex-col items-center bg-blue-100 py-12 px-2 grow">
       <div className="bg-white p-5 rounded md:col-span-2 space-y-2 max-w-2xl">
         <p className="text-xl font-medium">Your Customized Subscription Plan</p>
         <p>
