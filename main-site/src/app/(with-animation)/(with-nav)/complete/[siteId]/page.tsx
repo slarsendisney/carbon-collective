@@ -25,6 +25,7 @@ const Complete = async ({
   user.subscripedSites.push(siteId);
 
   await kv.hset(userId as string, user);
+  await kv.set(`subscribed-${userId}-${siteId}`, true)
 
   const site = await kv.hgetall(siteId) as {
     siteName?: string;
