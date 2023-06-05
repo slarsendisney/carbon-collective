@@ -6,8 +6,8 @@ import {
   CheckCircleIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/solid";
-// @ts-ignore
-import CarbonCollectiveClient from "carbon-collective-js";
+
+import CarbonCollectiveClient from "carbon-collective";
 
 const Thanks = () => {
   return (
