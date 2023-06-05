@@ -27,9 +27,7 @@ const ClientSideDashboard = ({
     detailsRes,
     domainCollectiveIDs,
   } = useAudit();
-  const removedDuplicates = subscribedSiteIds.filter((site, index) => {
-    return subscribedSiteIds.indexOf(site) === index;
-  });
+  
 
   if (topSites.length < 4)
     return (
@@ -145,11 +143,11 @@ const ClientSideDashboard = ({
       </div>
 
       <div className="flex flex-col items-center bg-white py-12 px-2 grow space-y-4">
-        {removedDuplicates.length > 0 && (
+        {subscribedSiteIds.length > 0 && (
           <div className="max-w-5xl mx-auto w-full rounded bg-green-100 p-5">
             <p className="text-xl font-medium mb-1">Your subscriptions</p>
-            {removedDuplicates.map((siteId) => {
-              const site = Object.keys(domainCollectiveIDs).find(
+            {subscribedSiteIds.map((siteId) => {
+              const site = Object.keys(domainCollectiveIDs || {}).find(
                 (key) => domainCollectiveIDs[key] === siteId
               );
               return (

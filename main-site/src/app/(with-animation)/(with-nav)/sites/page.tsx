@@ -12,7 +12,7 @@ const SitesPage = async () => {
     redirect("/sites/create")
   }
 
-  const removedDuplicates = sites.filter((site, index) => {
+  const removedDuplicates = (sites || []).filter((site, index) => {
     return sites.indexOf(site) === index;
   })
 

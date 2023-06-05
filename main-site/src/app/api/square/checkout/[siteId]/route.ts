@@ -94,7 +94,7 @@ export async function GET(
       redirectUrl:
         process.env.NODE_ENV === "development"
           ? `http://localhost:3000/magic/${siteId}`
-          : `https://${process.env.VERCEL_URL}/magic/${siteId}`,
+          : `https://www.carboncollective.club/magic/${siteId}`,
     },
   });
 

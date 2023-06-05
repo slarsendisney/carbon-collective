@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     clientSecret: process.env.SQUARE_ACCESS_TOKEN,
     grantType: "authorization_code",
     code,
-    redirectUri: process.env.NODE_ENV === 'development' ? "http://localhost:3000/api/square/oauth/redirect" : `https://${process.env.VERCEL_URL}/api/square/oauth/redirect`,
+    redirectUri: process.env.NODE_ENV === 'development' ? "http://localhost:3000/api/square/oauth/redirect" : `https://www.carboncollective.club/api/square/oauth/redirect`,
   });
 
   const { accessToken, refreshToken, expiresAt } = squareTokenRes.result;
@@ -32,5 +32,5 @@ export async function GET(request: Request) {
     refreshAt: Date.now() + 7 * 24 * 60 * 60 * 1000,
   });
 
-  return NextResponse.redirect(process.env.NODE_ENV === 'development' ? "http://localhost:3000/sites" : `https://${process.env.VERCEL_URL}/sites`);
+  return NextResponse.redirect(process.env.NODE_ENV === 'development' ? "http://localhost:3000/sites" : `https://www.carboncollective.club/sites`);
 }
