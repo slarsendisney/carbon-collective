@@ -12,6 +12,7 @@ for (let i = 0; i < metas.length; i++) {
       domain,
       type: 'SUPPORTED_SITE',
     })
+    
     isSupportedSite = true
   }
 }

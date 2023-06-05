@@ -5,12 +5,15 @@ import { AxiosResponse } from "axios";
 const axios = require("axios");
 const { URLS } = require("./config");
 
-export class Client {
+export class CarbonCollectiveClient {
   siteId;
   chromiumExtId: string | undefined;
+  hasChromeExtension: boolean | undefined;
+  userId: string | undefined;
+  initialising: boolean = true;
 
-  constructor(siteId: string) {
-    this.siteId = siteId;
+  constructor(public SITE_ID: string) {
+    this.siteId = SITE_ID;
   }
 
   private async fallbackFetch(url: string, options?: any) {
@@ -32,51 +35,42 @@ export class Client {
     await this.fallbackFetch(URLS.EXTENSION_CONFIG).then((data) => {
       this.chromiumExtId = data.chromiumExtId;
     });
-  }
-
-  async hasChromeExtension() {
     if (typeof chrome === "undefined") {
       return false;
     }
-
+ 
     if (this.chromiumExtId === undefined) {
       throw new Error("Not initialized. Please call init() first.");
     }
 
-    await chrome.runtime.sendMessage(
+    chrome.runtime.sendMessage(
       this.chromiumExtId,
       { type: "PING" },
-      function (response) {
+       (response) => {
         if (response && response.type === "PONG") {
-          return true;
+          this.hasChromeExtension = true;
+    
         } else {
-          return false;
+          this.hasChromeExtension =  false;
         }
       }
     );
-  }
-
-  private async getExtensionUserId() {
-    const hasExt = await this.hasChromeExtension();
-    if (!hasExt) {
-      return undefined;
-    }
-
-    await chrome.runtime.sendMessage(
+    chrome.runtime.sendMessage(
       this.chromiumExtId,
       { type: "GET_USER_ID" },
-      function (response) {
+       (response) => {
         if (response && response.type === "USER_ID") {
-          return response.userId;
-        } else {
-          return undefined;
-        }
+          this.userId = response.userId;
+        } 
       }
     );
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    this.initialising = false;
   }
 
   private async communicateSubscriptionStatus(subscribed: boolean) {
-    const hasExt = await this.hasChromeExtension();
+    const hasExt = await this.hasChromeExtension;
     if (!hasExt) {
       return undefined;
     }
@@ -86,19 +80,21 @@ export class Client {
     );
   }
 
+
   async isSubscribed() {
-    const hasExt = await this.hasChromeExtension();
+    const hasExt = this.hasChromeExtension;
     if (!hasExt) {
+      console.error("No extension found");
       return false;
     }
-    const userId = await this.getExtensionUserId();
-    if (!userId) {
+    if (!this.userId) {
+      console.error("No user id found");
       return false;
     }
-    this.fallbackFetch(URLS.SUBSCRIBED, {
+    const subscribed = await this.fallbackFetch(URLS.SUBSCRIBED, {
       method: "POST",
       body: JSON.stringify({
-        userId,
+        userId: this.userId,
         siteId: this.siteId,
       }),
     })
@@ -109,7 +105,9 @@ export class Client {
       .catch(() => {
         return false;
       });
+
+    return subscribed;
   }
 }
 
-module.exports = Client;
+module.exports = CarbonCollectiveClient;

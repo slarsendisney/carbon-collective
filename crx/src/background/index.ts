@@ -1,7 +1,7 @@
-import { configuration } from "../data/configuration"
+import { configuration } from '../data/configuration'
 
 chrome.runtime.onMessage.addListener(function message(request, sender, sendResponse) {
-  chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor  })
+  chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
   chrome.storage.local.get(['id', 'active'], (result) => {
     if (!result.id) {
       // If user is not logged in, do not track page views
@@ -29,6 +29,7 @@ chrome.runtime.onMessage.addListener(function message(request, sender, sendRespo
           chrome.storage.local.set({
             viewCounts,
             domainCollectiveIDs,
+            mostRecentSiteId: request.creatorCollectiveID,
           })
         })
         break
@@ -44,6 +45,7 @@ chrome.runtime.onMessage.addListener(function message(request, sender, sendRespo
 
           chrome.storage.local.set({
             viewCounts,
+            mostRecentSiteId: '',
           })
         })
         break
@@ -60,32 +62,29 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
 ) {
   chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
 
-
   switch (request.type) {
     // Used to check for extension installation
     case 'PING':
       sendResponse({ type: 'PONG' })
     case 'SITE_SUBSCRIPTION_STATUS':
-     
-      chrome.storage.local.get(["subscriptions"], (result) => {
+      chrome.storage.local.get(['subscriptions'], (result) => {
         const isSubscribed = request.value
         const url = new URL(sender.url as string)
         const domain = url.hostname
         const activeSubscriptions = result.subscriptions || {}
         activeSubscriptions[domain] = isSubscribed
         chrome.storage.local.set({
-          subscriptions: activeSubscriptions
+          subscriptions: activeSubscriptions,
         })
       })
-      
+
     case 'GET_USER_ID':
       chrome.storage.local.get(['id'], (result) => {
         sendResponse({
           type: 'USER_ID',
-          userId: result.id
+          userId: result.id,
         })
       })
-
   }
 
   // Message past this point should only be accessible from MAIN_SITE_DOMAINS
@@ -123,10 +122,25 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
 
       break
     case 'GET_DOMAINS':
-      chrome.storage.local.get(['supported_domains', 'unsupported_domains', 'site_visit_count'], (result) => {
-        sendResponse(result)
-      })
+      chrome.storage.local.get(
+        ['supported_domains', 'unsupported_domains', 'site_visit_count', 'domainCollectiveIDs'],
+        (result) => {
+          sendResponse(result)
+        },
+      )
       break
+    case 'SUBSCRIBED':
+      const siteId = request.siteId
+      chrome.storage.local.get(['subscriptions'], (result) => {
+        const activeSubscriptions = result.subscriptions || {}
+        activeSubscriptions[siteId] = true
+        chrome.storage.local.set({
+          subscriptions: activeSubscriptions,
+        })
+      })
+    
+      break
+
     default:
       break
   }
@@ -139,7 +153,7 @@ chrome.runtime.onInstalled.addListener(() => {
       'carboncollective.club': 0,
     },
     domainCollectiveIDs: {
-      'carboncollective.club': 'DUMMY_ID',
+      'carboncollective.club': 'CARB-72',
     },
   })
 })

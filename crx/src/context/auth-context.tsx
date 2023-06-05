@@ -18,7 +18,9 @@ export const AuthContext = createContext({
   active: true,
   toggleActive: () => {},
   onSubscribedSite: false,
-  domain: ""
+  domain: '',
+  siteSupported: false,
+  hasSubscriptions: false,
 })
 
 export const AuthProvider = ({
@@ -32,8 +34,10 @@ export const AuthProvider = ({
   const [onCreativeCollectiveSite, setOnCreativeCollectiveSite] = useState(false)
   const [loading, setLoading] = useState(true)
   const [active, setActive] = useState(true)
-  const [onSubscribedSite, setOnSubscribedSite] = useState(true)
-  const [domain, setDomain] = useState("")
+  const [onSubscribedSite, setOnSubscribedSite] = useState(false)
+  const [domain, setDomain] = useState('')
+  const [subscriptions, setSubscriptions] = useState({})
+  const [siteSupported, setSiteSupported] = useState(false)
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
@@ -48,34 +52,45 @@ export const AuthProvider = ({
         setOnCreativeCollectiveSite(true)
       }
       setDomain(domain)
-      // chrome.storage.local.get(['subscriptions'], (result) => {
-      //   const activeSubscriptions = result.subscriptions || {}
-      //   if (activeSubscriptions[domain]) {
-      //     setOnSubscribedSite(true)
-      //   } else {
-      //     setOnSubscribedSite(false)
-      //   }
-      // })
+     
     })
   }, [])
 
   useEffect(() => {
-    chrome.storage.local.get(['id', 'fullName', 'profileImageUrl', 'active'], async (result) => {
-      if (result.id) {
-        setAccount({
-          id: result.id,
-          fullName: result.fullName,
-          profileImageUrl: result.profileImageUrl,
-        })
-        if (result.active !== undefined) {
-          setActive(result.active)
+    chrome.storage.local.get(
+      ['id', 'fullName', 'profileImageUrl', 'active', 'subscriptions', 'mostRecentSiteId'],
+      async (result) => {
+        if (result.id) {
+          setAccount({
+            id: result.id,
+            fullName: result.fullName,
+            profileImageUrl: result.profileImageUrl,
+          })
+          if (result.active !== undefined) {
+            setActive(result.active)
+          }
+        } 
+        if(result.mostRecentSiteId){
+          setSiteSupported(true)
+        } else {
+          setSiteSupported(false)
         }
-      } else {
-        console.log('no account found')
-      }
-      setLoading(false)
-      return
-    })
+        if (result.subscriptions) {
+          setSubscriptions(result.subscriptions)
+          console.log(result.subscriptions, result.mostRecentSiteId)
+          if (result.mostRecentSiteId && result.subscriptions[result.mostRecentSiteId]) {
+            setOnSubscribedSite(true)
+          } else {
+            setOnSubscribedSite(false)
+          }
+        } else {
+          setOnSubscribedSite(false)
+        }
+
+        setLoading(false)
+        return
+      },
+    )
   }, [])
 
   const logout = useCallback(() => {
@@ -83,6 +98,11 @@ export const AuthProvider = ({
       setAccount(undefined)
     })
   }, [])
+
+  const hasSubscriptions = useMemo(() => {
+    return Object.keys(subscriptions).length > 0
+  }, [subscriptions, domain])
+
 
   const toggleActive = useCallback(() => {
     chrome.action.setBadgeBackgroundColor({ color: configuration.bgColor })
@@ -112,7 +132,7 @@ export const AuthProvider = ({
     return <Login />
   }
 
-  if (onCreativeCollectiveSite) {
+  if (onCreativeCollectiveSite && !onSubscribedSite) {
     return (
       <AuthContext.Provider
         value={{
@@ -121,7 +141,9 @@ export const AuthProvider = ({
           active,
           toggleActive,
           onSubscribedSite,
-          domain
+          domain,
+          siteSupported,
+          hasSubscriptions,
         }}
       >
         <Ready />
@@ -137,7 +159,9 @@ export const AuthProvider = ({
         active,
         toggleActive,
         onSubscribedSite,
-        domain
+        domain,
+        siteSupported,
+        hasSubscriptions
       }}
     >
       {children}
