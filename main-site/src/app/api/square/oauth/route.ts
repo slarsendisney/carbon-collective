@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
   const redirect_uri =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/square/oauth/redirect"
-      : `https://${process.env.VERCEL_URL}/api/square/oauth/redirect`;
+      : `https://www.carboncollective.club/api/square/oauth/redirect`;
   const state = userId;
   const response_type = "code";
   const url = `https://connect.squareupsandbox.com/oauth2/authorize?client_id=${client_id}&scope=${scopes}&session=false&state=${state}&response_type=${response_type}&redirect_uri=${redirect_uri}`;
