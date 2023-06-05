@@ -39,7 +39,7 @@ export const AuditProvider = ({ ...props }) => {
             // get top 10 sites
             const newTopSites = Object.keys(site_visit_count)
               .sort((a, b) => site_visit_count[b] - site_visit_count[a])
-              .slice(0, 8);
+          
             setTopSites(newTopSites);
             setSupportedDomains(supported_domains);
             setDomainCollectiveIDs(domainCollectiveIDs);

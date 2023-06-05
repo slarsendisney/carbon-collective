@@ -1,15 +1,9 @@
 "use client";
-import { AnalysingIllustration } from "@/components/illustrations/Analysing";
-import { LittleSpinner } from "@/components/loading/LittleSpinner";
 import { useAudit } from "@/context/audit-context";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import {
   ArrowRightCircleIcon,
-  ArrowRightIcon,
-  ExclamationTriangleIcon,
   GlobeAmericasIcon,
 } from "@heroicons/react/24/solid";
-import Link from "next/link";
 
 const Subscribe = () => {
   const { supportedDomains, detailsRes, topSites, domainCollectiveIDs } = useAudit();
@@ -28,31 +22,31 @@ const Subscribe = () => {
           but you can customize it using the sliders.
         </p>
         <div className="flex flex-col space-y-1">
-          {supportedDomains.slice(0, 3).map((site) => {
-            const report = detailsRes.audits.find(({ sitename }:{
-              sitename: string;
-            }) => sitename === site);
-
-            const siteId = domainCollectiveIDs[site];
+          {supportedDomains.slice(0, 3).map((currentSite) => {
+            const report = detailsRes.audits.find(({ site }:{
+              site: string;
+            }) => site === currentSite);
+            
+            const siteId = domainCollectiveIDs[currentSite];
             const carbon = (report?.carbon || 3.5).toFixed(1);
 
-            const importance = topSites.findIndex((s) => s === site);
+            const importance = topSites.findIndex((s) => s === currentSite);
 
             // suggest a price based on the importance of the site - lower importance = higher price
-            const price = `$${Math.ceil(10 - importance * 2)}`;
-
+            const price = Math.ceil(topSites.length - importance * 2);
+            const formattedPrice = `£${price}`
 
             return (
-            <a href={`/api/square/checkout/${siteId}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
+            <a href={`/api/square/checkout/${siteId}?value=${price}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
               <div className="flex items-center space-x-1">
                 <div className="flex items-center space-x-1 text-green-800 bg-green-400 px-2 py-1 text-sm rounded-full">
                   <GlobeAmericasIcon className="w-5 h-5 " />
                   {carbon}g CO2
                 </div>
-                <p className="text-lg">{site} | {report?.siteId}</p>
+                <p className="text-lg">{currentSite} | {siteId}</p>
               </div>
               <div className="flex items-center space-x-2">
-             <p className="text-lg font-bold">{price}</p>
+             <p className="text-lg font-bold">{formattedPrice} / month</p>
               <ArrowRightCircleIcon className="w-5 h-5" />
               </div>
             </a>

@@ -19,6 +19,10 @@ export const Onboarding = ({ step }: { step: number }) => {
       "-" +
       Math.floor(Math.random() * 1000);
     setCurrentStep(3);
+    if(siteName==="carboncollective.club"){
+      setSiteId("CARB-72")
+      return
+    }
     setSiteId(siteId);
   }, [siteName, setSiteId]);
 
