@@ -33,7 +33,7 @@ const Subscribe = () => {
             const importance = topSites.findIndex((s) => s === currentSite);
 
             // suggest a price based on the importance of the site - lower importance = higher price
-            const price = Math.ceil(topSites.length - importance * 2);
+            const price = Math.max(Math.ceil(topSites.length - importance * 2), 2);
             const formattedPrice = `£${price}`
 
             return (
