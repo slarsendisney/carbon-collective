@@ -6,7 +6,8 @@
     "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "count": "cloc --exclude-ext=svg src"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",

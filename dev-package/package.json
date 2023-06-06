@@ -11,7 +11,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "count": "cloc --exclude-ext=svg src"
   },
   "author": "slarsendisney",
   "license": "ISC",

@@ -1,7 +1,12 @@
 import { AuditProvider } from "@/context/audit-context";
 
-const AuditContextLayout = ({ children }: { children: JSX.Element }) => (
-  <AuditProvider>{children}</AuditProvider>
-);
+import kv from "@vercel/kv";
+
+const AuditContextLayout = async ({ children }: { children: JSX.Element }) => {
+  const domainCollectiveIDs = await kv.get("domainCollectiveIDs") || {};
+
+  return (
+  <AuditProvider domainCollectiveIDs={domainCollectiveIDs}>{children}</AuditProvider>
+)};
 
 export default AuditContextLayout;

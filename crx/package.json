@@ -9,7 +9,8 @@
     "build": "tsc && vite build",
     "zip": "zip -r ../main-site/public/carbon-collective carbon-collective",
     "preview": "vite preview",
-    "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'"
+    "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'",
+    "count": "cloc --exclude-ext=svg src "
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",

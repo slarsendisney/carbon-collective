@@ -23,6 +23,10 @@ export const Onboarding = ({ step }: { step: number }) => {
       setSiteId("CARB-72");
       return;
     }
+    if(siteName === "carbon-collective-7c39.vercel.app"){
+      setSiteId("CARB-476");
+      return;
+    }
     setSiteId(siteId);
   }, [siteName, setSiteId]);
 

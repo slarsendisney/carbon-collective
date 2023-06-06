@@ -37,13 +37,13 @@ const Subscribe = () => {
             const formattedPrice = `£${price}`
 
             return (
-            <a href={`/api/square/checkout/CARB-476?value=${price}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
+            <a href={`/api/square/checkout/${siteId}?value=${price}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
               <div className="flex items-center space-x-1">
                 <div className="flex items-center space-x-1 text-green-800 bg-green-400 px-2 py-1 text-sm rounded-full">
                   <GlobeAmericasIcon className="w-5 h-5 " />
                   {carbon}g CO2
                 </div>
-                <p className="text-lg">{currentSite} | {siteId}</p>
+                <p className="text-lg">{currentSite}</p>
               </div>
               <div className="flex items-center space-x-2">
              <p className="text-lg font-bold">{formattedPrice} / month</p>

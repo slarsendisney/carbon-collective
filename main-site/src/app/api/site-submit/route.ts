@@ -23,6 +23,12 @@ export async function POST(req: NextRequest) {
     siteId,
   });
   
+  const domainCollectiveIDs = await kv.get("domainCollectiveIDs") || {};
+
+  await kv.set("domainCollectiveIDs", {
+    ...domainCollectiveIDs,
+    [siteName]: siteId,
+  });
 
   await kv.hset(userId, {
     ...user,
