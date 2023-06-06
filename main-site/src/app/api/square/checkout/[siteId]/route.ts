@@ -41,14 +41,6 @@ export async function GET(
         phases: [
           {
             cadence: "MONTHLY",
-            periods: 1,
-            recurringPriceMoney: {
-              amount: BigInt(0),
-              currency: "GBP",
-            }
-          },
-          {
-            cadence: "MONTHLY",
             recurringPriceMoney: {
               amount: BigInt(parseInt(price)*100),
               currency: "GBP",
@@ -83,7 +75,7 @@ export async function GET(
     quickPay: {
       name: `Subscription to ${site.siteName}`,
       priceMoney: {
-        amount: BigInt(0),
+        amount: BigInt(parseInt(price)*100),
         currency: "GBP",
       },
       locationId: carbonCollectiveLocationId as string,
