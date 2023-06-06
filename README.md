@@ -5,7 +5,7 @@
 ## ⚡️ Quick Links:
 
 - [Try the site](carboncollective.club)
-- [DevPost]()
+- [DevPost](https://devpost.com/software/cc-6kfvdi)
 
 ## 🔨 Our Team
 
