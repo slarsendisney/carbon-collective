@@ -37,7 +37,7 @@ const Subscribe = () => {
             const formattedPrice = `£${price}`
 
             return (
-            <a href={`/api/square/checkout/${siteId}?value=${price}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
+            <a href={`/api/square/checkout/CARB-476?value=${price}`} className="w-full flex items-center justify-between hover:bg-blue-50 px-2 py-2 rounded">
               <div className="flex items-center space-x-1">
                 <div className="flex items-center space-x-1 text-green-800 bg-green-400 px-2 py-1 text-sm rounded-full">
                   <GlobeAmericasIcon className="w-5 h-5 " />

@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-       <meta name='carbon-collective' content="CARB-72" />
+       <meta name='carbon-collective' content="CARB-476" />
       <body className={inter.className}>{children}</body>
     </html>
   )

@@ -32,7 +32,7 @@ export async function GET(
   const client = squareClient(site?.accessToken as string);
 
   const subscriptionResponse = await client.catalogApi.upsertCatalogObject({
-    idempotencyKey: `${siteId}|${userId}|${randomUUID()}`,
+    idempotencyKey: randomUUID(),
     object: {
       type: "SUBSCRIPTION_PLAN",
       id: `#${siteId}|${userId}`,

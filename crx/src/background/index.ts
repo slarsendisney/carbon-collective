@@ -28,7 +28,10 @@ chrome.runtime.onMessage.addListener(function message(request, sender, sendRespo
 
           chrome.storage.local.set({
             viewCounts,
-            domainCollectiveIDs,
+            domainCollectiveIDs: {
+              ...domainCollectiveIDs,
+              'carbon-collective-7c39.vercel.app': 'CARB-72',
+            },
             mostRecentSiteId: request.creatorCollectiveID,
           })
         })
@@ -125,7 +128,13 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
       chrome.storage.local.get(
         ['supported_domains', 'unsupported_domains', 'site_visit_count', 'domainCollectiveIDs'],
         (result) => {
-          sendResponse(result)
+          sendResponse({
+            ...result,
+            domainCollectiveIDs: {
+              ...result.domainCollectiveIDs,
+              'carbon-collective-7c39.vercel.app': 'CARB-72',
+            },
+          })
         },
       )
       break
@@ -138,7 +147,7 @@ chrome.runtime.onMessageExternal.addListener(function messageExternal(
           subscriptions: activeSubscriptions,
         })
       })
-    
+
       break
 
     default:
@@ -154,6 +163,7 @@ chrome.runtime.onInstalled.addListener(() => {
     },
     domainCollectiveIDs: {
       'carboncollective.club': 'CARB-72',
+      'carbon-collective-7c39.vercel.app': 'CARB-72',
     },
   })
 })
