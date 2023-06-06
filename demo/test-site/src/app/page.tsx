@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     const initialiseCarbonCollective = async () => {
       // @ts-ignore
-      const carbonCollective = new CarbonCollectiveClient("CARB-72");
+      const carbonCollective = new CarbonCollectiveClient("CARB-476");
       await carbonCollective.init();
       const isSubscribed = await carbonCollective.isSubscribed();
       setIsSubscribed(isSubscribed);
